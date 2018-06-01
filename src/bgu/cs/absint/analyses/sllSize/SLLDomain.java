@@ -371,7 +371,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	public Local getLenLocal() {
 		if (currentLenVariable >= lenLocals.size())
 			return null;
-		Local lenLocal = lenLocals.get(currentLenVariable++);
+		Local lenLocal = lenLocals.get(currentLenVariable);
+		currentLenVariable++;
 		return lenLocal;
 	}
 

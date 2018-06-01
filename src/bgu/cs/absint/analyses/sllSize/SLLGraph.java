@@ -214,11 +214,18 @@ public class SLLGraph {
 	
 	public boolean checkIfEdgeLenEquals(Node n, int len)
 	{
+		boolean res = false;
+		ZoneFactoid f1 = new ZoneFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(len));
+		ZoneFactoid f2 = new ZoneFactoid(ZoneFactoid.ZERO_VAR, n.edgeLen, IntConstant.v(-len));
 		for (ZoneFactoid f : sizes.getFactoids())
 		{
-			if (f.equalVars(n.edgeLen, ZoneFactoid.ZERO_VAR) && f.bound.equivTo(len) &&
-				f.equalVars(ZoneFactoid.ZERO_VAR, n.edgeLen) && f.bound.equivTo(-len))
-				return true;
+			
+			if (f.eq(f1) || f.eq(f2))
+			{
+				if (res)
+					return true;
+				res = true;
+			}
 		}
 		return false;
 	}
@@ -316,10 +323,10 @@ public class SLLGraph {
 		{
 			Local local = iter.next();
 			Node n = pointsTo(local);
-			while (n != null && !visited.contains(n))
+			while (/*n != nullNode &&*/ n != null && !visited.contains(n))
 			{
 				n.edgeLen = SLLDomain.v().getLenLocal(); // TODO: should we update the ZoneState? 
-				//don't think so, because we normalize before create the ZoneState
+				//don't think so, because we normalize before creating the ZoneState
 				visited.add(n);
 				n = n.next;
 			}
