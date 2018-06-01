@@ -1,0 +1,127 @@
+public class TestClass extends java.lang.Object
+{
+/*TestClass.java*/
+
+/*[x, y, a]*/
+    public int avExample(int, int, int)
+    {
+        TestClass this;
+        int x, y, a, w, z, temp$0, b, temp$1, temp$2, c, temp$3, temp$4, temp$5, temp$6;
+
+        this := @this: TestClass;
+/*Source Line Pos Tag: sline: 2 eline: 15 spos: 2 epos: 2 file: TestClass.java*/
+/*V[1] = Reduce_VEDomain(AssignTopTransformer(V[0])) // this := @this: TestClass*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: TestClass*/
+/*V[0] : true*/
+        x := @parameter0: int;
+/*Source Line Pos Tag: sline: 2 eline: 2 spos: 23 epos: 27 file: TestClass.java*/
+/*V[2] = Reduce_VEDomain(AssignTopTransformer(V[1])) // x := @parameter0: int*/
+/*V[2] : true*/
+        y := @parameter1: int;
+/*Source Line Pos Tag: sline: 2 eline: 2 spos: 30 epos: 34 file: TestClass.java*/
+/*V[3] = Reduce_VEDomain(AssignTopTransformer(V[2])) // y := @parameter1: int*/
+/*V[3] : true*/
+        a := @parameter2: int;
+/*Source Line Pos Tag: sline: 2 eline: 2 spos: 37 epos: 41 file: TestClass.java*/
+/*V[4] = Reduce_VEDomain(AssignTopTransformer(V[3])) // a := @parameter2: int*/
+/*V[4] : true*/
+        temp$0 = x;
+/*Source Line Pos Tag: sline: 4 eline: 4 spos: 3 epos: 16 file: TestClass.java*/
+/*V[5] = Reduce_VEDomain(AssignVarToVarTransformer(V[4])) // temp$0 = x*/
+/*V[5] : temp$0=x*/
+        z = temp$0 + y;
+/*Source Line Pos Tag: sline: 4 eline: 4 spos: 3 epos: 16 file: TestClass.java*/
+/*V[6] = Reduce_VEDomain(AssignTopTransformer(V[5])) // z = temp$0 + y*/
+/*V[6] : temp$0=x*/
+        w = z;
+/*Source Line Pos Tag: sline: 5 eline: 5 spos: 3 epos: 3 file: TestClass.java*/
+/*V[7] = Reduce_VEDomain(AssignVarToVarTransformer(V[6])) // w = z*/
+/*V[7] : and(w=z, temp$0=x)*/
+        b = z;
+/*Source Line Pos Tag: sline: 6 eline: 6 spos: 3 epos: 12 file: TestClass.java*/
+/*V[8] = Reduce_VEDomain(AssignVarToVarTransformer(V[7])) // b = z*/
+/*V[8] : and(w=z, w=b, temp$0=x, b=z)*/
+        temp$1 = virtualinvoke this.<TestClass: int avExample(int,int,int)>(b, b, b);
+/*Source Line Pos Tag: sline: 7 eline: 7 spos: 7 epos: 24 file: TestClass.java*/
+/*V[9] = Reduce_VEDomain(AssignTopTransformer(V[8])) // temp$1 = virtualinvoke this.<TestClass: int avExample(int,int,int)>(b, b, b)*/
+/*V[9] : and(w=z, w=b, temp$0=x, b=z)*/
+        b = temp$1;
+/*Source Line Pos Tag: sline: 7 eline: 7 spos: 3 epos: 3 file: TestClass.java*/
+/*V[10] = Reduce_VEDomain(AssignVarToVarTransformer(V[9])) // b = temp$1*/
+/*V[10] : and(w=z, b=temp$1, temp$0=x)*/
+
+     label1:
+        if a == b goto label2;
+/*Source Line Pos Tag: sline: 9 eline: 9 spos: 10 epos: 15 file: TestClass.java*/
+/*V[12] = Reduce_VEDomain(AssumeVarNeqVarTransformer(V[13])) // assume !(a == b)*/
+/*V[12] : and(w=z, temp$0=x)*/
+/*V[11] = Reduce_VEDomain(AssignAssumeVarEqualVarTransformer(V[13])) // assume a == b*/
+/*V[11] : and(w=z, a=b, temp$0=x)*/
+/*V[13] = JoinLoop_VEDomain(V[10], V[23]) // if a == b goto temp$2 = a - 1*/
+/*V[13] : and(w=z, temp$0=x)*/
+
+        goto label3;
+/*Source Line Pos Tag: sline: 9 eline: 9 spos: 10 epos: 15 file: TestClass.java*/
+/*V[14] = V[12] // goto [?= return b]*/
+/*V[14] : and(w=z, temp$0=x)*/
+
+     label2:
+        temp$2 = a - 1;
+/*Source Line Pos Tag: sline: 10 eline: 10 spos: 4 epos: 13 file: TestClass.java*/
+/*V[15] = Reduce_VEDomain(AssignTopTransformer(V[11])) // temp$2 = a - 1*/
+/*V[15] : and(w=z, a=b, temp$0=x)*/
+        a = temp$2;
+/*Source Line Pos Tag: sline: 10 eline: 10 spos: 4 epos: 4 file: TestClass.java*/
+/*V[16] = Reduce_VEDomain(AssignVarToVarTransformer(V[15])) // a = temp$2*/
+/*V[16] : and(w=z, a=temp$2, temp$0=x)*/
+        temp$3 = x;
+/*Source Line Pos Tag: sline: 11 eline: 11 spos: 4 epos: 21 file: TestClass.java*/
+/*V[17] = Reduce_VEDomain(AssignVarToVarTransformer(V[16])) // temp$3 = x*/
+/*V[17] : and(w=z, temp$3=x, a=temp$2, temp$0=x, temp$3=temp$0)*/
+        temp$4 = temp$3 + y;
+/*Source Line Pos Tag: sline: 11 eline: 11 spos: 4 epos: 21 file: TestClass.java*/
+/*V[18] = Reduce_VEDomain(AssignTopTransformer(V[17])) // temp$4 = temp$3 + y*/
+/*V[18] : and(w=z, temp$3=x, a=temp$2, temp$0=x, temp$3=temp$0)*/
+        c = temp$4 + w;
+/*Source Line Pos Tag: sline: 11 eline: 11 spos: 4 epos: 21 file: TestClass.java*/
+/*V[19] = Reduce_VEDomain(AssignTopTransformer(V[18])) // c = temp$4 + w*/
+/*V[19] : and(w=z, temp$3=x, a=temp$2, temp$0=x, temp$3=temp$0)*/
+        temp$5 = c;
+/*Source Line Pos Tag: sline: 12 eline: 12 spos: 4 epos: 13 file: TestClass.java*/
+/*V[20] = Reduce_VEDomain(AssignVarToVarTransformer(V[19])) // temp$5 = c*/
+/*V[20] : and(w=z, temp$3=x, temp$5=c, a=temp$2, temp$0=x, temp$3=temp$0)*/
+        temp$6 = temp$5 + a;
+/*Source Line Pos Tag: sline: 12 eline: 12 spos: 4 epos: 13 file: TestClass.java*/
+/*V[21] = Reduce_VEDomain(AssignTopTransformer(V[20])) // temp$6 = temp$5 + a*/
+/*V[21] : and(w=z, temp$3=x, temp$5=c, a=temp$2, temp$0=x, temp$3=temp$0)*/
+        b = temp$6;
+/*Source Line Pos Tag: sline: 12 eline: 12 spos: 4 epos: 4 file: TestClass.java*/
+/*V[22] = Reduce_VEDomain(AssignVarToVarTransformer(V[21])) // b = temp$6*/
+/*V[22] : and(w=z, temp$3=x, temp$5=c, a=temp$2, b=temp$6, temp$0=x, temp$3=temp$0)*/
+        goto label1;
+/*Source Line Pos Tag: sline: 9 eline: 13 spos: 3 epos: 3 file: TestClass.java*/
+/*V[23] = V[22] // goto [?= (branch)]*/
+/*V[23] : and(w=z, temp$3=x, temp$5=c, a=temp$2, b=temp$6, temp$0=x, temp$3=temp$0)*/
+
+     label3:
+        return b;
+/*Source Line Pos Tag: sline: 14 eline: 14 spos: 3 epos: 11 file: TestClass.java*/
+/*V[24] = V[14] // return b*/
+/*V[24] : and(w=z, temp$0=x)*/
+    }
+
+/*[]*/
+/*0*/
+    public void <init>()
+    {
+        TestClass this;
+
+        this := @this: TestClass;
+/*1*/
+        specialinvoke this.<java.lang.Object: void <init>()>();
+/*1*/
+        return;
+/*1*/
+    }
+}
