@@ -134,6 +134,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					curr2.sizes = joinedState;
 				}
 			}
+			iter2 = elem2CopiedGraphs.iterator();
 		}
 		
 		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
@@ -184,17 +185,12 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		// Special treatment for top.
 		if (first == getTop() || second == getTop())
 			return getTop();
-
-		Set<SLLGraph> elem1Graphs = first.getDisjuncts();
-		Set<SLLGraph> elem2Graphs = second.getDisjuncts();
-		Iterator<SLLGraph> iter1 = elem1Graphs.iterator();
-		Iterator<SLLGraph> iter2 = elem2Graphs.iterator();
 		
 		Set<SLLGraph> elem1CopiedGraphs = copyDisjunctiveState(first).getDisjuncts();
 		Set<SLLGraph> elem2CopiedGraphs = copyDisjunctiveState(second).getDisjuncts();
 
-		iter1 = elem1CopiedGraphs.iterator();
-		iter2 = elem2CopiedGraphs.iterator();
+		Iterator<SLLGraph> iter1 = elem1CopiedGraphs.iterator();
+		Iterator<SLLGraph> iter2 = elem2CopiedGraphs.iterator();
 			
 		while (iter1.hasNext()) {
 			SLLGraph curr1 = iter1.next();
@@ -209,9 +205,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					curr1.sizes = widenedState;
 					curr2.sizes = widenedState;
 				}
-				curr2 = iter2.next();
 			}
-			curr1 = iter1.next();
+			iter2 = elem2CopiedGraphs.iterator();
 		}
 		
 		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
@@ -226,17 +221,12 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		if (second == getBottom()) {
 			return first;
 		}
-
-		Set<SLLGraph> elem1Graphs = first.getDisjuncts();
-		Set<SLLGraph> elem2Graphs = second.getDisjuncts();
-		Iterator<SLLGraph> iter1 = elem1Graphs.iterator();
-		Iterator<SLLGraph> iter2 = elem2Graphs.iterator();
 		
 		Set<SLLGraph> elem1CopiedGraphs = copyDisjunctiveState(first).getDisjuncts();
 		Set<SLLGraph> elem2CopiedGraphs = copyDisjunctiveState(second).getDisjuncts();
 
-		iter1 = elem1CopiedGraphs.iterator();
-		iter2 = elem2CopiedGraphs.iterator();
+		Iterator<SLLGraph> iter1 = elem1CopiedGraphs.iterator();
+		Iterator<SLLGraph> iter2 = elem2CopiedGraphs.iterator();
 			
 		while (iter1.hasNext()) {
 			SLLGraph curr1 = iter1.next();
@@ -251,9 +241,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					curr1.sizes = narrowedState;
 					curr2.sizes = narrowedState;
 				}
-				curr2 = iter2.next();
 			}
-			curr1 = iter1.next();
+			iter2 = elem2CopiedGraphs.iterator();
 		}
 		
 		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
@@ -347,14 +336,14 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 */
 	public DisjunctiveState<SLLGraph> initAcyclic(Local x) {
 		SLLGraph graph1 = makeAllNullsGraph();
-		Node ptXOne = new Node(graph1.nullNode/*, getLenLocal()*/);
+		Node ptXOne = new Node(graph1.nullNode);
 		graph1.addNode(ptXOne);
 		graph1.mapLocal(x, ptXOne);
 		graph1.normalize();
 		graph1.addSizeEqualsFactoids(ptXOne, 1);
 
 		SLLGraph graph2 = makeAllNullsGraph();
-		Node ptXGt1 = new Node(graph2.nullNode/*, getLenLocal()*/);
+		Node ptXGt1 = new Node(graph2.nullNode);
 		graph2.addNode(ptXGt1);
 		graph2.mapLocal(x, ptXGt1);
 		graph2.normalize();
@@ -386,7 +375,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		SLLGraph result = graph.copy();
 		Node rhsNode = result.pointsTo(var);
 		Node rhsNextNode = rhsNode.next;
-		Node newNextNode = new Node(rhsNextNode/*, getLenLocal()*/);
+		Node newNextNode = new Node(rhsNextNode);
 		result.addNode(newNextNode);
 		rhsNode.next = newNextNode;
 		result.normalize();
@@ -405,7 +394,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		SLLGraph result = graph.copy();
 		Node rhsNode = result.pointsTo(var);
 		Node rhsNextNode = rhsNode.next;
-		Node newNextNode = new Node(rhsNextNode/*, getLenLocal()*/);
+		Node newNextNode = new Node(rhsNextNode);
 		result.addNode(newNextNode);
 		rhsNode.next = newNextNode;
 		result.normalize();
@@ -605,7 +594,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			for (SLLGraph graph : input) {
 				SLLGraph disjunct = graph.copy();
 				disjunct.unmapLocal(lhs);
-				Node newNode = new Node(disjunct.nullNode/*, getLenLocal()*/);
+				Node newNode = new Node(disjunct.nullNode);
 				disjunct.addNode(newNode);
 				disjunct.mapLocal(lhs, newNode);
 				disjunct.normalize();
@@ -953,18 +942,18 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			Set<SLLGraph> disjuncts = new HashSet<>();
 			
 			for (SLLGraph graph : input) {
-				boolean foundError = false;
+				boolean found = false;
+				ZoneFactoid factToLookFor = new ZoneFactoid(first, second, diff);
+
 				for (ZoneFactoid f : graph.sizes.getFactoids()) {
-					if (f.equalVars(first, second) &&
-						f.bound.equivTo(diff))
-					{
+					if (factToLookFor.leq(f)) {
 						graph.normalize();
 						disjuncts.add(graph);
-						foundError = true;
+						found = true;
 						break;
 					}
 				}
-				if (foundError)
+				if (!found)
 					disjuncts.add(new InvalidLengthDiff());
 			}
 			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(

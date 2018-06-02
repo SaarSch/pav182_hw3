@@ -171,15 +171,13 @@ public class SLLGraph {
 	
 	public void addSizeFactoid(Node n, int edgeLenBound, boolean invertFactoid)
 	{
-		// first, update all the depending factoids
-		boolean foundDependingFactoids = false;
-		Collection<ZoneFactoid> factoids = sizes.getFactoids();
+		/*Collection<ZoneFactoid> factoids = sizes.getFactoids();
 		for (ZoneFactoid factoid : factoids)
 		{
 			Local var = n.edgeLen;
 			if (factoid.hasVar(var))
 			{
-				foundDependingFactoids = true;
+				//foundDependingFactoids = true;
 				int lenDiff = factoid.bound.value-edgeLenBound;
 				if (factoid.lhs.equivTo(var))
 				{
@@ -190,15 +188,14 @@ public class SLLGraph {
 					factoid.bound.subtract(IntConstant.v(lenDiff));
 				}
 			}
-		}
+		}*/
+		sizes.removeVar(n.edgeLen);
 		
-		//if (!foundDependingFactoids)
-		//{
-			if (invertFactoid)
-				sizes.addFactoid(ZoneFactoid.ZERO_VAR, n.edgeLen, IntConstant.v(-edgeLenBound)); // add the Factoid: -x<=-edgeLenBound === x>=edgeLenBound
-			else
-				sizes.addFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(edgeLenBound)); // add the Factoid: x<=edgeLenBound
-		//}
+		if (invertFactoid)
+			sizes.addFactoid(ZoneFactoid.ZERO_VAR, n.edgeLen, IntConstant.v(-edgeLenBound)); // add the Factoid: -x<=-edgeLenBound === x>=edgeLenBound
+		else
+			sizes.addFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(edgeLenBound)); // add the Factoid: x<=edgeLenBound
+		
 	}
 	
 	public void addSizeFactoid(Node n, int edgeLenBound)
@@ -359,6 +356,7 @@ public class SLLGraph {
 			String edgeLenStr = checkIfEdgeLenEquals(n, 1) ? ".next=" : "~>";
 			substrings.add(nodeToName.get(n) + edgeLenStr + nextNodeName);
 		}
+		substrings.add("ZoneState: [" + sizes.toString() + "]");
 		StringBuilder result = new StringBuilder("graph = {");
 		result.append(StringUtils.toString(substrings));
 		result.append("}");
