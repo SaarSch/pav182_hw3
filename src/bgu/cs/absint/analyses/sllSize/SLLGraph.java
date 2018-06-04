@@ -171,40 +171,12 @@ public class SLLGraph {
 	
 	public void addSizeFactoid(Node n, int edgeLenBound, boolean invertFactoid)
 	{
-		/*Collection<ZoneFactoid> factoids = sizes.getFactoids();
-		ZoneFactoid factoidToKeep = null;
-		for (ZoneFactoid factoid : factoids)
-		{
-			Local var = n.edgeLen;
-			if (factoid.hasVar(var) && factoid.hasVar(ZoneFactoid.ZERO_VAR))
-			{
-				//foundDependingFactoids = true;
-				int lenDiff = factoid.bound.value-edgeLenBound;
-				if (factoid.lhs.equivTo(var))
-				{
-					factoid.bound.add(IntConstant.v(lenDiff));
-				}
-				else // rhs
-				{
-					factoid.bound.subtract(IntConstant.v(lenDiff));
-				}
-				factoidToKeep = factoid;	
-			}
-		}*/
-		
-		// sizes.removeVar(n.edgeLen);
-		
-		/*if (factoidToKeep != null)
-			sizes.add(factoidToKeep);
-		ZoneDomain.v().reduce(sizes);*/
-		
 		if (invertFactoid)
 			sizes.addFactoid(ZoneFactoid.ZERO_VAR, n.edgeLen, IntConstant.v(-edgeLenBound)); // add the Factoid: -x<=-edgeLenBound === x>=edgeLenBound
 		else
 			sizes.addFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(edgeLenBound)); // add the Factoid: x<=edgeLenBound
 		
-		ZoneDomain.v().reduce(sizes);
-		
+		//sizes = ZoneDomain.v().reduce(sizes);
 	}
 	
 	public void addSizeFactoid(Node n, int edgeLenBound)
@@ -221,11 +193,13 @@ public class SLLGraph {
 	public boolean checkIfEdgeLenEquals(Node n, int len)
 	{
 		boolean res = false;
+		if (sizes == ZoneDomain.v().getBottom() ||
+			sizes == ZoneDomain.v().getTop())
+			return res;
 		ZoneFactoid f1 = new ZoneFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(len));
 		ZoneFactoid f2 = new ZoneFactoid(ZoneFactoid.ZERO_VAR, n.edgeLen, IntConstant.v(-len));
 		for (ZoneFactoid f : sizes.getFactoids())
 		{
-			
 			if (f.eq(f1) || f.eq(f2))
 			{
 				if (res)

@@ -77,19 +77,19 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		this.locals = new LinkedHashSet<>(locals);
 		lenLocals.clear();
 		currentLenVariable = 0;
-		for (int i=0; i<locals.size() * 2 + 1; i++)
-			lenLocals.add(new JimpleLocal("len"+i, IntType.v()));
+		for (int i = 0; i < locals.size() * 2 + 1; i++)
+			lenLocals.add(new JimpleLocal("len" + i, IntType.v()));
 	}
 
 	public void setListClass(String listClassName, String listClassField) {
 		this.listClassName = listClassName;
 		this.listClassField = listClassField;
 	}
-	
+
 	public void decrementAllocatedLens() {
 		currentLenVariable--;
 	}
-	
+
 	public void clearAllocatedLens() {
 		currentLenVariable = 0;
 	}
@@ -108,18 +108,17 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * Returns the set union of both input sets.
 	 */
 	@Override
-	public DisjunctiveState<SLLGraph> ub(DisjunctiveState<SLLGraph> elem1,
-			DisjunctiveState<SLLGraph> elem2) {
+	public DisjunctiveState<SLLGraph> ub(DisjunctiveState<SLLGraph> elem1, DisjunctiveState<SLLGraph> elem2) {
 		// Special treatment for top.
 		if (elem1 == getTop() || elem2 == getTop())
 			return getTop();
-		
+
 		Set<SLLGraph> elem1CopiedGraphs = copyDisjunctiveState(elem1).getDisjuncts();
 		Set<SLLGraph> elem2CopiedGraphs = copyDisjunctiveState(elem2).getDisjuncts();
 
 		Iterator<SLLGraph> iter1 = elem1CopiedGraphs.iterator();
 		Iterator<SLLGraph> iter2 = elem2CopiedGraphs.iterator();
-			
+
 		while (iter1.hasNext()) {
 			SLLGraph curr1 = iter1.next();
 			while (iter2.hasNext()) {
@@ -127,8 +126,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				if (curr1.equals(curr2)) // graphs are isomorphic
 				{
 					// normalize both graphs, then join their ZoneStates
-					//curr1.normalize();
-					//curr2.normalize();
+					// curr1.normalize();
+					// curr2.normalize();
 					ZoneState joinedState = ZoneDomain.v().ub(curr1.sizes, curr2.sizes);
 					curr1.sizes = joinedState;
 					curr2.sizes = joinedState;
@@ -136,9 +135,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			}
 			iter2 = elem2CopiedGraphs.iterator();
 		}
-		
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
-				elem1CopiedGraphs, elem2CopiedGraphs);
+
+		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(elem1CopiedGraphs, elem2CopiedGraphs);
 		return result;
 	}
 
@@ -147,8 +145,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 */
 	@Override
 	// TODO: Changes?
-	public DisjunctiveState<SLLGraph> ubLoop(DisjunctiveState<SLLGraph> elem1,
-			DisjunctiveState<SLLGraph> elem2) {
+	public DisjunctiveState<SLLGraph> ubLoop(DisjunctiveState<SLLGraph> elem1, DisjunctiveState<SLLGraph> elem2) {
 		// Special treatment for top.
 		if (elem1 == getTop() || elem2 == getTop())
 			return getTop();
@@ -163,14 +160,12 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			disjuncts.add(disjunct);
 		}
 
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
-				disjuncts);
+		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(disjuncts);
 		return result;
 	}
 
 	@Override
-	public boolean leq(DisjunctiveState<SLLGraph> first,
-			DisjunctiveState<SLLGraph> second) {
+	public boolean leq(DisjunctiveState<SLLGraph> first, DisjunctiveState<SLLGraph> second) {
 		// Special treatment for top.
 		if (second == getTop())
 			return true;
@@ -179,19 +174,19 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		else
 			return second.getDisjuncts().containsAll(first.getDisjuncts());
 	}
-	
+
 	@Override
 	public DisjunctiveState<SLLGraph> widen(DisjunctiveState<SLLGraph> first, DisjunctiveState<SLLGraph> second) {
 		// Special treatment for top.
 		if (first == getTop() || second == getTop())
 			return getTop();
-		
+
 		Set<SLLGraph> elem1CopiedGraphs = copyDisjunctiveState(first).getDisjuncts();
 		Set<SLLGraph> elem2CopiedGraphs = copyDisjunctiveState(second).getDisjuncts();
 
 		Iterator<SLLGraph> iter1 = elem1CopiedGraphs.iterator();
 		Iterator<SLLGraph> iter2 = elem2CopiedGraphs.iterator();
-			
+
 		while (iter1.hasNext()) {
 			SLLGraph curr1 = iter1.next();
 			while (iter2.hasNext()) {
@@ -199,8 +194,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				if (curr1.equals(curr2)) // graphs are isomorphic
 				{
 					// normalize both graphs, then join their ZoneStates
-					//curr1.normalize();
-					//curr2.normalize();
+					// curr1.normalize();
+					// curr2.normalize();
 					ZoneState widenedState = ZoneDomain.v().widen(curr1.sizes, curr2.sizes);
 					curr1.sizes = widenedState;
 					curr2.sizes = widenedState;
@@ -208,9 +203,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			}
 			iter2 = elem2CopiedGraphs.iterator();
 		}
-		
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
-				elem1CopiedGraphs, elem2CopiedGraphs);
+
+		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(elem1CopiedGraphs, elem2CopiedGraphs);
 		return result;
 
 	}
@@ -221,13 +215,13 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		if (second == getBottom()) {
 			return first;
 		}
-		
+
 		Set<SLLGraph> elem1CopiedGraphs = copyDisjunctiveState(first).getDisjuncts();
 		Set<SLLGraph> elem2CopiedGraphs = copyDisjunctiveState(second).getDisjuncts();
 
 		Iterator<SLLGraph> iter1 = elem1CopiedGraphs.iterator();
 		Iterator<SLLGraph> iter2 = elem2CopiedGraphs.iterator();
-			
+
 		while (iter1.hasNext()) {
 			SLLGraph curr1 = iter1.next();
 			while (iter2.hasNext()) {
@@ -235,8 +229,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				if (curr1.equals(curr2)) // graphs are isomorphic
 				{
 					// normalize both graphs, then join their ZoneStates
-					//curr1.normalize();
-					//curr2.normalize();
+					// curr1.normalize();
+					// curr2.normalize();
 					ZoneState narrowedState = ZoneDomain.v().narrow(curr1.sizes, curr2.sizes);
 					curr1.sizes = narrowedState;
 					curr2.sizes = narrowedState;
@@ -244,21 +238,20 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			}
 			iter2 = elem2CopiedGraphs.iterator();
 		}
-		
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
-				elem1CopiedGraphs, elem2CopiedGraphs);
+
+		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(elem1CopiedGraphs, elem2CopiedGraphs);
 		return result;
 
 	}
-
 
 	@Override
 	public UnaryOperation<DisjunctiveState<SLLGraph>> getTransformer(Unit stmt) {
 		return matcher.getTransformer(stmt);
 	}
-	
+
 	/**
-	 * A reduction operator. The operator reduces the ZoneState of each SLLGraph in the DisjunctiveState
+	 * A reduction operator. The operator reduces the ZoneState of each SLLGraph in
+	 * the DisjunctiveState
 	 */
 	@Override
 	public DisjunctiveState<SLLGraph> reduce(DisjunctiveState<SLLGraph> input) {
@@ -270,8 +263,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 
 		DisjunctiveState<SLLGraph> result = copyDisjunctiveState(input);
 		Iterator<SLLGraph> iter = result.iterator();
-		while (iter.hasNext())
-		{
+		while (iter.hasNext()) {
 			SLLGraph curr = iter.next();
 			curr.sizes = ZoneDomain.v().reduce(curr.sizes);
 		}
@@ -320,19 +312,18 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	}
 
 	/**
-	 * Creates a state containing a shape graph where all list variables point
-	 * to null.
+	 * Creates a state containing a shape graph where all list variables point to
+	 * null.
 	 */
 	public DisjunctiveState<SLLGraph> initNulls() {
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-				makeAllNullsGraph());
+		DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(makeAllNullsGraph());
 		return result;
 	}
 
 	/**
-	 * Creates state containing two shape graphs where all list variables point
-	 * to null, except a given list variable, which points to an acyclic list of
-	 * size >= 0.
+	 * Creates state containing two shape graphs where all list variables point to
+	 * null, except a given list variable, which points to an acyclic list of size
+	 * >= 0.
 	 */
 	public DisjunctiveState<SLLGraph> initAcyclic(Local x) {
 		SLLGraph graph1 = makeAllNullsGraph();
@@ -351,9 +342,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 
 		SLLGraph allNulls = makeAllNullsGraph();
 		allNulls.normalize();
-		
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-				allNulls, graph1, graph2);
+
+		DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(allNulls, graph1, graph2);
 		return result;
 	}
 
@@ -366,10 +356,10 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	}
 
 	/**
-	 * Materializes the next node of 'var' by replacing the outgoing edge with
-	 * two edges connected by a new node. The first edge has length 1 and the
-	 * second also has length 1. This represents the case where the list
-	 * outgoing from 'var' has length exactly 2.
+	 * Materializes the next node of 'var' by replacing the outgoing edge with two
+	 * edges connected by a new node. The first edge has length 1 and the second
+	 * also has length 1. This represents the case where the list outgoing from
+	 * 'var' has length exactly 2.
 	 */
 	public SLLGraph focusOne(SLLGraph graph, Local var) {
 		SLLGraph result = graph.copy();
@@ -380,15 +370,16 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		rhsNode.next = newNextNode;
 		result.normalize();
 		result.addSizeEqualsFactoids(newNextNode, 1);
+		result.sizes.removeVar(rhsNode.edgeLen);
 		result.addSizeEqualsFactoids(rhsNode, 1);
 		return result;
 	}
-// TODO: in both: add a factoid for the relation between both lists (x-y>=1)?
+
 	/**
-	 * Materializes the next node of 'var' by replacing the outgoing edge with
-	 * two edges connected by a new node. The first edge has length 1 and the
-	 * second has length >1. This represents the case where the list outgoing
-	 * from 'var' has length >2.
+	 * Materializes the next node of 'var' by replacing the outgoing edge with two
+	 * edges connected by a new node. The first edge has length 1 and the second has
+	 * length >1. This represents the case where the list outgoing from 'var' has
+	 * length >2.
 	 */
 	public SLLGraph focusGtOne(SLLGraph graph, Local var) {
 		SLLGraph result = graph.copy();
@@ -398,14 +389,16 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		result.addNode(newNextNode);
 		rhsNode.next = newNextNode;
 		result.normalize();
-		result.addSizeFactoid(newNextNode, 1, true); // GTONE
-		result.addSizeEqualsFactoids(rhsNextNode, 1);
+		result.addSizeFactoid(newNextNode, 2, true); // GTONE
+		result.sizes.removeVar(rhsNode.edgeLen);
+		result.addSizeEqualsFactoids(rhsNode, 1);
+		result.sizes.addFactoid(rhsNode.edgeLen, newNextNode.edgeLen, IntConstant.v(-1)); // rhsNode-newNode<=-1 === newNode-rhsNode>=1
 		return result;
 	}
 
 	/**
-	 * Replaces non-maximal (uninterrupted) list segments with a single maximal
-	 * list segment of length >1 and then removes garbage nodes.
+	 * Replaces non-maximal (uninterrupted) list segments with a single maximal list
+	 * segment of length >1 and then removes garbage nodes.
 	 */
 	public SLLGraph generalize(SLLGraph graph) {
 		SLLGraph result = graph;
@@ -422,13 +415,12 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					continue;
 				if (n.next == result.nullNode)
 					continue;
-				boolean isNextInterruption = !n.next.pointedBy.isEmpty()
-						|| result.getPreds(n.next).size() > 1;
+				boolean isNextInterruption = !n.next.pointedBy.isEmpty() || result.getPreds(n.next).size() > 1;
 				if (!isNextInterruption) {
 					change = true;
 					Node nextNode = n.next.next;
 					n.next = nextNode;
-					result.addSizeFactoid(nextNode, 2, true);
+					result.addSizeFactoid(nextNode, 1, true);
 				}
 			}
 		}
@@ -464,7 +456,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		};
 
 		bottom = new DisjunctiveState<SLLGraph>();
-		
+
 	}
 
 	/**
@@ -472,8 +464,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class SLLMatcher extends
-			TransformerMatcher<DisjunctiveState<SLLGraph>> {
+	protected class SLLMatcher extends TransformerMatcher<DisjunctiveState<SLLGraph>> {
 		@Override
 		public void caseInvokeStmt(InvokeStmt stmt) {
 			InvokeExpr expr = stmt.getInvokeExpr();
@@ -482,20 +473,15 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				transformer = new InitAllNullsTransformer();
 			} else if (methodName.equals("analysisInitAcyclic")) {
 				if (expr.getArgCount() != 1) {
-					throw new Error(
-							"initAcyclicList expects one argument, but got "
-									+ expr.getArgCount() + "!");
+					throw new Error("initAcyclicList expects one argument, but got " + expr.getArgCount() + "!");
 				}
 				if (expr.getArg(0) instanceof Local)
-					transformer = new InitAcyclicTransformer(
-							(Local) expr.getArg(0));
+					transformer = new InitAcyclicTransformer((Local) expr.getArg(0));
 				else
-					throw new Error(
-							"initAcyclicList expects one argument of type Local, but got "
-									+ expr.getArg(0).getClass() + "!");
+					throw new Error("initAcyclicList expects one argument of type Local, but got "
+							+ expr.getArg(0).getClass() + "!");
 			} else if (methodName.equals("analysisAssertNotNull")) {
-				transformer = new AssertNotNullTransformer(
-						(Local) expr.getArg(0));
+				transformer = new AssertNotNullTransformer((Local) expr.getArg(0));
 			} else if (methodName.equals("analysisAssertReachable")) {
 				// transformer = new AssertReachablelTransformer();
 			} else if (methodName.equals("analysisAssertAcyclic")) {
@@ -507,8 +493,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			} else if (methodName.equals("analysisAssertNoGarbage")) {
 				// transformer = new AssertNoGarbageTransformer();
 			} else if (methodName.equals("analysisLengthDiff")) {
-				   transformer = new AssertLengthDiff((Local) expr.getArg(0), (Local) expr.getArg(1),
-						   (IntConstant) expr.getArg(2), (StringConstant) expr.getArg(3));
+				transformer = new AssertLengthDiff((Local) expr.getArg(0), (Local) expr.getArg(1),
+						(IntConstant) expr.getArg(2), (StringConstant) expr.getArg(3));
 			}
 		}
 
@@ -523,8 +509,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		}
 
 		@Override
-		public void matchAssignNewExprToLocal(AssignStmt stmt, Local lhs,
-				RefType baseType) {
+		public void matchAssignNewExprToLocal(AssignStmt stmt, Local lhs, RefType baseType) {
 			if (isListRefType(lhs))
 				transformer = new AssignNewExprToLocalTransformer(lhs);
 		}
@@ -536,41 +521,36 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		}
 
 		/**
-		 * Matches statements of the form {@code x=y.f} where 'x' and 'y' are
-		 * local variables.
+		 * Matches statements of the form {@code x=y.f} where 'x' and 'y' are local
+		 * variables.
 		 */
 		@Override
-		public void matchAssignInstanceFieldRefToLocal(AssignStmt stmt,
-				Local lhs, Local rhs, SootField field) {
+		public void matchAssignInstanceFieldRefToLocal(AssignStmt stmt, Local lhs, Local rhs, SootField field) {
 			if (field.getName().equals(listClassField)) {
 				transformer = new AssignNextToLocalTransformer(lhs, rhs);
 			}
 		}
 
 		@Override
-		public void matchAssignLocalToInstanceFieldRef(Local base,
-				SootField field, Local rhs) {
+		public void matchAssignLocalToInstanceFieldRef(Local base, SootField field, Local rhs) {
 			if (isListRefType(base) && field.getName().equals(listClassField)) {
 				transformer = new AssignLocalToNextFieldTransformer(base, rhs);
 			}
 		}
 
 		@Override
-		public void matchAssignNullToInstanceFieldRef(Local base,
-				SootField field) {
+		public void matchAssignNullToInstanceFieldRef(Local base, SootField field) {
 			if (isListRefType(base))
 				transformer = new AssignNextNullTransformer(base);
 		}
 
 		@Override
-		public void matchAssumeLocalEqNull(IfStmt stmt, boolean polarity,
-				Local op1) {
+		public void matchAssumeLocalEqNull(IfStmt stmt, boolean polarity, Local op1) {
 			transformer = new AssumeLocalEqNullTransformer(polarity, op1);
 		}
 
 		@Override
-		public void matchAssumeLocalEqLocal(IfStmt stmt, boolean polarity,
-				Local op1, Local op2) {
+		public void matchAssumeLocalEqLocal(IfStmt stmt, boolean polarity, Local op1, Local op2) {
 			transformer = new AssumeLocalEqLocalTransformer(polarity, op1, op2);
 		}
 	}
@@ -580,8 +560,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class AssignNewExprToLocalTransformer extends
-			UnaryOperation<DisjunctiveState<SLLGraph>> {
+	protected class AssignNewExprToLocalTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
 		protected final Local lhs;
 
 		public AssignNewExprToLocalTransformer(Local lhs) {
@@ -601,8 +580,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				disjunct.addSizeEqualsFactoids(newNode, 1);
 				disjuncts.add(disjunct);
 			}
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(disjuncts);
 			return result;
 		}
 	}
@@ -612,8 +590,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class AssignNullTransformer extends
-			UnaryOperation<DisjunctiveState<SLLGraph>> {
+	protected class AssignNullTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
 		protected final Local lhs;
 
 		public AssignNullTransformer(Local lhs) {
@@ -630,8 +607,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				disjunct.normalize();
 				disjuncts.add(disjunct);
 			}
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(disjuncts);
 			return result;
 		}
 	}
@@ -641,8 +617,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class AssignRefToRefTransformer extends
-			UnaryOperation<DisjunctiveState<SLLGraph>> {
+	protected class AssignRefToRefTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
 		protected final Local lhs;
 		protected final Local rhs;
 
@@ -661,8 +636,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				disjunct.normalize();
 				disjuncts.add(disjunct);
 			}
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(disjuncts);
 			return result;
 		}
 	}
@@ -672,8 +646,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class AssignNextToLocalTransformer extends
-			UnaryOperation<DisjunctiveState<SLLGraph>> {
+	protected class AssignNextToLocalTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
 		protected final Local lhs;
 		protected final Local rhs;
 
@@ -713,8 +686,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					disjuncts.add(focusGtOne);
 				}
 			}
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(disjuncts);
 			return result;
 		}
 	}
@@ -724,8 +696,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class AssignNextNullTransformer extends
-			UnaryOperation<DisjunctiveState<SLLGraph>> {
+	protected class AssignNextNullTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
 		protected final Local lhs;
 
 		public AssignNextNullTransformer(Local lhs) {
@@ -747,8 +718,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					disjuncts.add(disjunct);
 				}
 			}
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(disjuncts);
 			return result;
 		}
 	}
@@ -758,8 +728,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class AssignLocalToNextFieldTransformer extends
-			UnaryOperation<DisjunctiveState<SLLGraph>> {
+	protected class AssignLocalToNextFieldTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
 		protected final Local lhs;
 		protected final Local rhs;
 
@@ -784,8 +753,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					disjuncts.add(disjunct);
 				}
 			}
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(disjuncts);
 			return result;
 		}
 	}
@@ -796,8 +764,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class InitAllNullsTransformer extends
-			UnaryOperation<DisjunctiveState<SLLGraph>> {
+	protected class InitAllNullsTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
 		@Override
 		public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
 			return initNulls();
@@ -805,14 +772,13 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	}
 
 	/**
-	 * A transformer that always returns a state containing three shape graphs
-	 * where all list variables point to null, except a given list variable,
-	 * which points to an acyclic list of size >= 0.
+	 * A transformer that always returns a state containing three shape graphs where
+	 * all list variables point to null, except a given list variable, which points
+	 * to an acyclic list of size >= 0.
 	 * 
 	 * @author romanm
 	 */
-	protected class InitAcyclicTransformer extends
-			UnaryOperation<DisjunctiveState<SLLGraph>> {
+	protected class InitAcyclicTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
 		protected final Local var;
 
 		public InitAcyclicTransformer(Local var) {
@@ -826,13 +792,12 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	}
 
 	/**
-	 * A transformer that checks whether a given list reference variable
-	 * is/isn't null.
+	 * A transformer that checks whether a given list reference variable is/isn't
+	 * null.
 	 * 
 	 * @author romanm
 	 */
-	protected class AssumeLocalEqNullTransformer extends
-			AssumeTransformer<DisjunctiveState<SLLGraph>> {
+	protected class AssumeLocalEqNullTransformer extends AssumeTransformer<DisjunctiveState<SLLGraph>> {
 		protected final Local var;
 
 		public AssumeLocalEqNullTransformer(boolean polarity, Local var) {
@@ -850,8 +815,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					disjuncts.add(graph);
 				}
 			}
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(disjuncts);
 			return result;
 		}
 	}
@@ -862,13 +826,11 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class AssumeLocalEqLocalTransformer extends
-			AssumeTransformer<DisjunctiveState<SLLGraph>> {
+	protected class AssumeLocalEqLocalTransformer extends AssumeTransformer<DisjunctiveState<SLLGraph>> {
 		protected final Local lhs;
 		protected final Local rhs;
 
-		public AssumeLocalEqLocalTransformer(boolean polarity, Local lhs,
-				Local rhs) {
+		public AssumeLocalEqLocalTransformer(boolean polarity, Local lhs, Local rhs) {
 			super(polarity);
 			this.lhs = lhs;
 			this.rhs = rhs;
@@ -878,15 +840,13 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
 			Set<SLLGraph> disjuncts = new HashSet<>();
 			for (SLLGraph graph : input) {
-				boolean conditionHolds = graph.pointsTo(lhs) == graph
-						.pointsTo(rhs);
+				boolean conditionHolds = graph.pointsTo(lhs) == graph.pointsTo(rhs);
 				if (conditionHolds == polarity) {
 					graph.normalize();
 					disjuncts.add(graph);
 				}
 			}
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(disjuncts);
 			return result;
 		}
 	}
@@ -896,8 +856,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * 
 	 * @author romanm
 	 */
-	protected class AssertNotNullTransformer extends
-			AssumeLocalEqNullTransformer {
+	protected class AssertNotNullTransformer extends AssumeLocalEqNullTransformer {
 
 		public AssertNotNullTransformer(Local var) {
 			super(true, var);
@@ -907,29 +866,28 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			super(polarity, var);
 		}
 	}
-	
+
 	/**
-	 * Our transformer
+	 * Our length-diff transformer
 	 * 
 	 * @author saars & nevoma
 	 */
-	 class AssertLengthDiff extends
-			UnaryOperation<DisjunctiveState<SLLGraph>> { 
-		
+	class AssertLengthDiff extends UnaryOperation<DisjunctiveState<SLLGraph>> {
+
 		protected final Local first;
 		protected final Local second;
 		protected final IntConstant diff;
 		protected final StringConstant message;
-		
+
 		protected class InvalidLengthDiff extends SLLGraph implements ErrorState {
 
 			@Override
 			public String getMessages() {
 				return "Invalid length diff!";
 			}
-			
+
 		}
-		
+
 		public AssertLengthDiff(Local first, Local second, IntConstant diff, StringConstant message) {
 			this.first = first;
 			this.second = second;
@@ -943,16 +901,26 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			
 			for (SLLGraph graph : input) {
 				boolean found = false;
-				ZoneFactoid factToLookFor = new ZoneFactoid(first, second, diff);
-
-				for (ZoneFactoid f : graph.sizes.getFactoids()) {
-					if (factToLookFor.leq(f)) {
+				ZoneState reduced = ZoneDomain.v().reduce(graph.sizes); // imply all possible factoids
+				Node n1 = graph.pointsTo(first);
+				Node n2 = graph.pointsTo(second);
+				if (n1 == null || n2 == null || reduced == ZoneDomain.v().getTop())
+				{
+					graph.normalize();
+					disjuncts.add(graph);
+					continue;
+				}
+				
+				ZoneFactoid factToLookFor = new ZoneFactoid(n1.edgeLen, n2.edgeLen, diff);
+				for (ZoneFactoid f : reduced.getFactoids()) {
+					if (f.eq(factToLookFor)) {
 						graph.normalize();
 						disjuncts.add(graph);
 						found = true;
 						break;
 					}
 				}
+
 				if (!found)
 					disjuncts.add(new InvalidLengthDiff());
 			}

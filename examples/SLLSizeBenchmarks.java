@@ -98,7 +98,7 @@ public class SLLSizeBenchmarks {
 	 * 
 	 * @return the cell holds the given value, or null if there is none.
 	 */
-	public Node find(Node head, int key) {
+	/*public Node find(Node head, int key) {
 		analysisInitAcyclic(head); // Start with an acyclic list.
 
 		Node result = null;
@@ -111,7 +111,7 @@ public class SLLSizeBenchmarks {
 			curr = curr.next;
 		}
 		return result;
-	}
+	}*/
 
 	/**
 	 * Creates two equal-sized acyclic singly-linked lists of a given size and
@@ -122,7 +122,7 @@ public class SLLSizeBenchmarks {
 	 *            The number of cells in the list.
 	 * @return An acyclic singly-linked list.
 	 */
-	/*public Node createAndPrint(int size) {
+	public Node createAndPrint(int size) {
 		analysisInitAllNulls();
 		Node head1 = null;
 		Node head2 = null;
@@ -140,8 +140,8 @@ public class SLLSizeBenchmarks {
 		//analysisAssertNoGarbage("Unable to prove absence of garbage in create!");
 
 		// Let's check that the two lists have the same length.
-		//analysisLengthDiff(head1, head2, 0, "Unable to assert size difference!");
-		//analysisLengthDiff(head2, head1, 0, "Unable to assert size difference!");
+		analysisLengthDiff(head1, head2, 0, "Unable to assert size difference!");
+		analysisLengthDiff(head2, head1, 0, "Unable to assert size difference!");
 
 		Node t1 = head1;
 		Node t2 = head2;
@@ -154,9 +154,9 @@ public class SLLSizeBenchmarks {
 			t2 = t2.next;
 		}
 		return head1;
-	}*/
+	}
 
-	public static void createAndPrintSmall() {
+	/*public static void createAndPrintSmall() {
 		analysisInitAllNulls();
 		Node head = new Node();
 		head.next = new Node();
@@ -166,5 +166,5 @@ public class SLLSizeBenchmarks {
 		if (t != null) {
 			//System.out.println("unexpected");
 		}
-	}
+	}*/
 }
