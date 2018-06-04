@@ -39,7 +39,7 @@ public class SLLSizeBenchmarks {
 	}
 
 	/**
-	 * Asserts that 'y' is reachable from 'x'. That is, starting from 'x' and
+	 * Asserts that s'y' is reachable from 'x'. That is, starting from 'x' and
 	 * following 'next' fields gets to a node referenced by 'y', or to null when 'y'
 	 * is null.<br>
 	 * TODO: implement assert states in SLLAnalysis.
@@ -122,7 +122,7 @@ public class SLLSizeBenchmarks {
 	 *            The number of cells in the list.
 	 * @return An acyclic singly-linked list.
 	 */
-	public Node createAndPrint(int size) {
+	/*public Node createAndPrint(int size) {
 		analysisInitAllNulls();
 		Node head1 = null;
 		Node head2 = null;
@@ -154,7 +154,7 @@ public class SLLSizeBenchmarks {
 			t2 = t2.next;
 		}
 		return head1;
-	}
+	}*/
 
 	public static void createAndPrintSmall() {
 		analysisInitAllNulls();

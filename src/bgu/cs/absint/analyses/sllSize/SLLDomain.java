@@ -383,7 +383,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		result.addSizeEqualsFactoids(rhsNode, 1);
 		return result;
 	}
-
+// TODO: in both: add a factoid for the relation between both lists (x-y>=1)?
 	/**
 	 * Materializes the next node of 'var' by replacing the outgoing edge with
 	 * two edges connected by a new node. The first edge has length 1 and the

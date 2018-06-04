@@ -172,10 +172,11 @@ public class SLLGraph {
 	public void addSizeFactoid(Node n, int edgeLenBound, boolean invertFactoid)
 	{
 		/*Collection<ZoneFactoid> factoids = sizes.getFactoids();
+		ZoneFactoid factoidToKeep = null;
 		for (ZoneFactoid factoid : factoids)
 		{
 			Local var = n.edgeLen;
-			if (factoid.hasVar(var))
+			if (factoid.hasVar(var) && factoid.hasVar(ZoneFactoid.ZERO_VAR))
 			{
 				//foundDependingFactoids = true;
 				int lenDiff = factoid.bound.value-edgeLenBound;
@@ -187,14 +188,22 @@ public class SLLGraph {
 				{
 					factoid.bound.subtract(IntConstant.v(lenDiff));
 				}
+				factoidToKeep = factoid;	
 			}
 		}*/
-		sizes.removeVar(n.edgeLen);
+		
+		// sizes.removeVar(n.edgeLen);
+		
+		/*if (factoidToKeep != null)
+			sizes.add(factoidToKeep);
+		ZoneDomain.v().reduce(sizes);*/
 		
 		if (invertFactoid)
 			sizes.addFactoid(ZoneFactoid.ZERO_VAR, n.edgeLen, IntConstant.v(-edgeLenBound)); // add the Factoid: -x<=-edgeLenBound === x>=edgeLenBound
 		else
 			sizes.addFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(edgeLenBound)); // add the Factoid: x<=edgeLenBound
+		
+		ZoneDomain.v().reduce(sizes);
 		
 	}
 	
@@ -315,6 +324,7 @@ public class SLLGraph {
 	            });
 		sortedLocals.addAll(pointsTo.keySet()); // sorted
 	
+		Map<Local, Local> changes = new HashMap<>();
 		Iterator<Local> iter = sortedLocals.iterator();
 		while (iter.hasNext())
 		{
@@ -322,12 +332,38 @@ public class SLLGraph {
 			Node n = pointsTo(local);
 			while (/*n != nullNode &&*/ n != null && !visited.contains(n))
 			{
-				n.edgeLen = SLLDomain.v().getLenLocal(); // TODO: should we update the ZoneState? 
-				//don't think so, because we normalize before creating the ZoneState
+				Local lenLocal = SLLDomain.v().getLenLocal();
+				for (ZoneFactoid f : sizes.getFactoids())
+				{
+					if (f.lhs == n.edgeLen)
+						changes.put(f.lhs, lenLocal);
+					else if (f.rhs == n.edgeLen)
+						changes.put(f.rhs, lenLocal);
+				}			
+				
+				n.edgeLen = lenLocal;
 				visited.add(n);
 				n = n.next;
 			}
 		}
+		
+		List<ZoneFactoid> newFactoids = new ArrayList<>();
+		for (ZoneFactoid f : sizes.getFactoids())
+		{
+			if (changes.containsKey(f.lhs) && changes.containsKey(f.rhs))
+				newFactoids.add(new ZoneFactoid(changes.get(f.lhs), changes.get(f.rhs), f.bound));
+			else if (changes.containsKey(f.lhs))
+				newFactoids.add(new ZoneFactoid(changes.get(f.lhs), f.rhs, f.bound));
+			else if (changes.containsKey(f.rhs))
+				newFactoids.add(new ZoneFactoid(f.lhs, changes.get(f.rhs), f.bound));
+			else
+				newFactoids.add(new ZoneFactoid(f.lhs, f.rhs, f.bound));
+		}
+		
+		ZoneState newState = new ZoneState();
+		for (ZoneFactoid f : newFactoids)
+			newState.add(f);
+		sizes = newState;
 	}
 
 	@Override
