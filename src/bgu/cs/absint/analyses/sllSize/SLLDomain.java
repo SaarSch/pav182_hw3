@@ -22,6 +22,7 @@ import soot.jimple.InvokeStmt;
 import soot.jimple.StringConstant;
 import soot.jimple.internal.JimpleLocal;
 import bgu.cs.absint.AssumeTransformer;
+import bgu.cs.absint.ComposedOperation;
 import bgu.cs.absint.ErrorState;
 import bgu.cs.absint.AbstractDomain;
 import bgu.cs.absint.IdOperation;
@@ -113,11 +114,10 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		if (elem1 == getTop() || elem2 == getTop())
 			return getTop();
 
-		Set<SLLGraph> elem1CopiedGraphs = copyDisjunctiveState(elem1).getDisjuncts();
-		Set<SLLGraph> elem2CopiedGraphs = copyDisjunctiveState(elem2).getDisjuncts();
+		Set<SLLGraph> disjuncts = new HashSet<SLLGraph>();
 
-		Iterator<SLLGraph> iter1 = elem1CopiedGraphs.iterator();
-		Iterator<SLLGraph> iter2 = elem2CopiedGraphs.iterator();
+		Iterator<SLLGraph> iter1 = elem1.iterator();
+		Iterator<SLLGraph> iter2 = elem2.iterator();
 
 		while (iter1.hasNext()) {
 			SLLGraph curr1 = iter1.next();
@@ -125,18 +125,20 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				SLLGraph curr2 = iter2.next();
 				if (curr1.equals(curr2)) // graphs are isomorphic
 				{
-					// normalize both graphs, then join their ZoneStates
-					// curr1.normalize();
-					// curr2.normalize();
 					ZoneState joinedState = ZoneDomain.v().ub(curr1.sizes, curr2.sizes);
-					curr1.sizes = joinedState;
-					curr2.sizes = joinedState;
+					SLLGraph res = curr1.copy();
+					res.sizes = joinedState;
+					disjuncts.add(res);
+				}
+				else {
+					disjuncts.add(curr1);
+					disjuncts.add(curr2);
 				}
 			}
-			iter2 = elem2CopiedGraphs.iterator();
+			iter2 = elem2.iterator();
 		}
 
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(elem1CopiedGraphs, elem2CopiedGraphs);
+		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(disjuncts);
 		return result;
 	}
 
@@ -144,7 +146,6 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * Applies {@code generalize} to the shape graphs in both input sets.
 	 */
 	@Override
-	// TODO: Changes?
 	public DisjunctiveState<SLLGraph> ubLoop(DisjunctiveState<SLLGraph> elem1, DisjunctiveState<SLLGraph> elem2) {
 		// Special treatment for top.
 		if (elem1 == getTop() || elem2 == getTop())
@@ -181,11 +182,10 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		if (first == getTop() || second == getTop())
 			return getTop();
 
-		Set<SLLGraph> elem1CopiedGraphs = copyDisjunctiveState(first).getDisjuncts();
-		Set<SLLGraph> elem2CopiedGraphs = copyDisjunctiveState(second).getDisjuncts();
+		Set<SLLGraph> disjuncts = new HashSet<SLLGraph>();
 
-		Iterator<SLLGraph> iter1 = elem1CopiedGraphs.iterator();
-		Iterator<SLLGraph> iter2 = elem2CopiedGraphs.iterator();
+		Iterator<SLLGraph> iter1 = first.iterator();
+		Iterator<SLLGraph> iter2 = second.iterator();
 
 		while (iter1.hasNext()) {
 			SLLGraph curr1 = iter1.next();
@@ -193,34 +193,33 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				SLLGraph curr2 = iter2.next();
 				if (curr1.equals(curr2)) // graphs are isomorphic
 				{
-					// normalize both graphs, then join their ZoneStates
-					// curr1.normalize();
-					// curr2.normalize();
 					ZoneState widenedState = ZoneDomain.v().widen(curr1.sizes, curr2.sizes);
-					curr1.sizes = widenedState;
-					curr2.sizes = widenedState;
+					SLLGraph res = curr1.copy();
+					res.sizes = widenedState;
+					disjuncts.add(res);
+				}
+				else {
+					disjuncts.add(curr1);
+					disjuncts.add(curr2);
 				}
 			}
-			iter2 = elem2CopiedGraphs.iterator();
+			iter2 = second.iterator();
 		}
 
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(elem1CopiedGraphs, elem2CopiedGraphs);
+		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(disjuncts);
 		return result;
-
 	}
 
 	@Override
 	public DisjunctiveState<SLLGraph> narrow(DisjunctiveState<SLLGraph> first, DisjunctiveState<SLLGraph> second) {
 		// Special treatment for top.
-		if (second == getBottom()) {
+		if (second == getBottom())
 			return first;
-		}
 
-		Set<SLLGraph> elem1CopiedGraphs = copyDisjunctiveState(first).getDisjuncts();
-		Set<SLLGraph> elem2CopiedGraphs = copyDisjunctiveState(second).getDisjuncts();
+		Set<SLLGraph> disjuncts = new HashSet<SLLGraph>();
 
-		Iterator<SLLGraph> iter1 = elem1CopiedGraphs.iterator();
-		Iterator<SLLGraph> iter2 = elem2CopiedGraphs.iterator();
+		Iterator<SLLGraph> iter1 = first.iterator();
+		Iterator<SLLGraph> iter2 = second.iterator();
 
 		while (iter1.hasNext()) {
 			SLLGraph curr1 = iter1.next();
@@ -228,25 +227,33 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				SLLGraph curr2 = iter2.next();
 				if (curr1.equals(curr2)) // graphs are isomorphic
 				{
-					// normalize both graphs, then join their ZoneStates
-					// curr1.normalize();
-					// curr2.normalize();
 					ZoneState narrowedState = ZoneDomain.v().narrow(curr1.sizes, curr2.sizes);
-					curr1.sizes = narrowedState;
-					curr2.sizes = narrowedState;
+					SLLGraph res = curr1.copy();
+					res.sizes = narrowedState;
+					disjuncts.add(res);
+				}
+				else {
+					disjuncts.add(curr1);
+					disjuncts.add(curr2);
 				}
 			}
-			iter2 = elem2CopiedGraphs.iterator();
+			iter2 = second.iterator();
 		}
 
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(elem1CopiedGraphs, elem2CopiedGraphs);
+		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(disjuncts);
 		return result;
-
 	}
-
+	
 	@Override
 	public UnaryOperation<DisjunctiveState<SLLGraph>> getTransformer(Unit stmt) {
-		return matcher.getTransformer(stmt);
+		UnaryOperation<DisjunctiveState<SLLGraph>> vanillaTransformer = matcher.getTransformer(stmt);
+		if (vanillaTransformer.equals(IdOperation.v())) {
+			// An optimization - no need to run a reduction after an identity
+			// transformer.
+			return vanillaTransformer;
+		} else {
+			return ComposedOperation.compose(vanillaTransformer, getReductionOperation());
+		}
 	}
 
 	/**
@@ -918,7 +925,6 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				ZoneFactoid factToLookFor = new ZoneFactoid(n1.edgeLen, n2.edgeLen, diff);
 				for (ZoneFactoid f : reduced.getFactoids()) {
 					if (f.eq(factToLookFor)) {
-						graph.normalize();
 						disjuncts.add(graph);
 						found = true;
 						break;

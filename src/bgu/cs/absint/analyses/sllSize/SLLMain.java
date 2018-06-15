@@ -23,8 +23,8 @@ public class SLLMain {
 			BaseAnalysis<DisjunctiveState<SLLGraph>, SLLDomain> {
 		public SLLAnalysis() {
 			super(SLLDomain.v());
-			//useWidening(true);
-			//useNarrowing(true);
+			useWidening(true);
+			useNarrowing(true);
 		}
 
 		@Override
