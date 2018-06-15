@@ -98,7 +98,7 @@ public class SLLSizeBenchmarks {
 	 * 
 	 * @return the cell holds the given value, or null if there is none.
 	 */
-	/*public Node find(Node head, int key) {
+	public Node find(Node head, int key) {
 		analysisInitAcyclic(head); // Start with an acyclic list.
 
 		Node result = null;
@@ -111,7 +111,7 @@ public class SLLSizeBenchmarks {
 			curr = curr.next;
 		}
 		return result;
-	}*/
+	}
 
 	/**
 	 * Creates two equal-sized acyclic singly-linked lists of a given size and
@@ -156,7 +156,7 @@ public class SLLSizeBenchmarks {
 		return head1;
 	}
 
-	/*public static void createAndPrintSmall() {
+	public static void createAndPrintSmall() {
 		analysisInitAllNulls();
 		Node head = new Node();
 		head.next = new Node();
@@ -166,5 +166,5 @@ public class SLLSizeBenchmarks {
 		if (t != null) {
 			//System.out.println("unexpected");
 		}
-	}*/
+	}
 }

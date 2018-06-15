@@ -879,11 +879,15 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		protected final IntConstant diff;
 		protected final StringConstant message;
 
-		protected class InvalidLengthDiff extends SLLGraph implements ErrorState {
+		protected class IncorrectLengthDiff extends DisjunctiveState<SLLGraph> implements ErrorState {
 
+			public IncorrectLengthDiff() {
+				super();
+			}
+			
 			@Override
 			public String getMessages() {
-				return "Invalid length diff!";
+				return "The length difference is incorrect";
 			}
 
 		}
@@ -922,7 +926,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				}
 
 				if (!found)
-					disjuncts.add(new InvalidLengthDiff());
+					return new IncorrectLengthDiff();
 			}
 			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
 					disjuncts);

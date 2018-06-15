@@ -144,12 +144,6 @@ public class SLLGraph {
 		if (n != null) {
 			n.removeLocal(v);
 			pointsTo.remove(v);
-			/*for (Entry<Local, Node> entry : pointsTo.entrySet()) {
-				if (entry.getValue() == n) { // if found, some local points on it - don't decrement
-					return;
-				}
-			}
-			SLLDomain.v().decrementAllocatedLens();*/
 		}
 	}
 
