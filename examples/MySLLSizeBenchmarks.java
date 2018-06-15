@@ -1,4 +1,3 @@
-
 /**
  * List-manipulating methods to test the shape analysis.
  * 
@@ -7,7 +6,7 @@
  * 
  * @author romanm
  */
-public class SLLSizeBenchmarks {
+public class MySLLSizeBenchmarks {
 	public static class Node {
 		public Node next;
 		public int data;
@@ -38,7 +37,7 @@ public class SLLSizeBenchmarks {
 	}
 
 	/**
-	 * Asserts that 'y' is reachable from 'x'. That is, starting from 'x' and
+	 * Asserts that s'y' is reachable from 'x'. That is, starting from 'x' and
 	 * following 'next' fields gets to a node referenced by 'y', or to null when 'y'
 	 * is null.<br>
 	 */
@@ -88,78 +87,61 @@ public class SLLSizeBenchmarks {
 	///////////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Searches for a cell with the given data field value.
+	 * Creates an acylic list and assert its state.
 	 * 
-	 * @return the cell holds the given value, or null if there is none.
 	 */
-	public Node find(Node head, int key) {
+	public Node testAcyclic(Node head) {
 		analysisInitAcyclic(head); // Start with an acyclic list.
 
-		Node result = null;
+		analysisAssertAcyclic(head, "Not acyclic!");
+		//analysisAssertCyclic(head, "Not cyclic!"); // gives an error as expected!
+
+		return head;
+	}
+	
+	/**
+	 * Creates a cylic list and assert its state.
+	 * 
+	 */
+	public Node testCyclic(Node head) {
+		analysisInitAcyclic(head); // Start with an acyclic list.
 		Node curr = head;
-		while (curr != null) {
-			if (curr.data == key) {
-				result = curr;
-				break;
-			}
+		while (curr.next != null) {
 			curr = curr.next;
 		}
-		return result;
-	}
+		curr.next = head; // creates the cycle
+		analysisAssertCyclic(head, "Not cyclic!");
+		//analysisAssertAcyclic(head, "Not acyclic!"); // gives an error as expected!
 
+		return head;
+	}
+	
 	/**
-	 * Creates two equal-sized acyclic singly-linked lists of a given size and
-	 * prints them to the console. The data field of a cell holds its position in
-	 * the list.
+	 * Creates a list and assert y is reachable from head.
 	 * 
-	 * @param size
-	 *            The number of cells in the list.
-	 * @return An acyclic singly-linked list.
 	 */
-	public Node createAndPrint(int size) {
-		analysisInitAllNulls();
-		Node head1 = null;
-		Node head2 = null;
-		for (int i = 0; i < size; ++i) {
-			Node n1 = new Node();
-			n1.next = head1;
-			n1.data = i;
-			head1 = n1;
-
-			Node n2 = new Node();
-			n2.next = head2;
-			n2.data = i;
-			head2 = n2;
-			
-			analysisAssertNoGarbage("Unable to prove absence of garbage in create!");
-		}
+	public Node testReachable(Node head) {
+		analysisInitAcyclic(head); // Start with an acyclic list.
+		Node y = new Node();
+		head.next = y;
 		
-		// Let's check that the two lists have the same length.
-		analysisLengthDiff(head1, head2, -1, "Unable to assert size difference!");
-		analysisLengthDiff(head2, head1, -5, "Unable to assert size difference!");
+		analysisAssertReachable(head, y, "Not reachable!");
+		//analysisAssertDisjoint(head, y, "Not disjoint!"); // gives an error as expected!
 
-		Node t1 = head1;
-		Node t2 = head2;
-		while (t1 != null) {
-			//System.out.println(t1.data);
-			//System.out.println(t2.data);
-			t1 = t1.next;
-			// Since we know that the two lists have the same length, the next dereference
-			// is safe.
-			t2 = t2.next;
-		}
-		return head1;
+		return head;
 	}
+	
+	/**
+	 * Creates a list and assert y is unreachable from head.
+	 * 
+	 */
+	public Node testDisjoint(Node head) {
+		analysisInitAcyclic(head); // Start with an acyclic list.
+		Node y = new Node();
+		
+		analysisAssertDisjoint(head, y, "Not disjoint!");
+		//analysisAssertReachable(head, y, "Not reachable!"); // gives an error as expected!
 
-	public static void createAndPrintSmall() {
-		analysisInitAllNulls();
-		Node head = new Node();
-		head.next = new Node();
-		head.next.next = new Node();
-		head.next.next.next = new Node();
-		Node t = head.next.next.next.next;
-		if (t != null) {
-			//System.out.println("unexpected");
-		}
+		return head;
 	}
 }

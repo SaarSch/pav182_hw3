@@ -183,67 +183,54 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			return getTop();
 
 		Set<SLLGraph> disjuncts = new HashSet<SLLGraph>();
+		
+		disjuncts.addAll(first.getDisjuncts());
 
-		Iterator<SLLGraph> iter1 = first.iterator();
-		Iterator<SLLGraph> iter2 = second.iterator();
-
-		while (iter1.hasNext()) {
-			SLLGraph curr1 = iter1.next();
-			while (iter2.hasNext()) {
-				SLLGraph curr2 = iter2.next();
-				if (curr1.equals(curr2)) // graphs are isomorphic
-				{
-					ZoneState widenedState = ZoneDomain.v().widen(curr1.sizes, curr2.sizes);
-					SLLGraph res = curr1.copy();
-					res.sizes = widenedState;
-					disjuncts.add(res);
-				}
-				else {
-					disjuncts.add(curr1);
-					disjuncts.add(curr2);
-				}
+		
+		for (SLLGraph curr : second.getDisjuncts()) {
+			SLLGraph res = curr.copy();
+			SLLGraph isomorphic;
+			if ((isomorphic = getIsomorphicGraph(curr, first.getDisjuncts())) != null) {
+				ZoneState widenedState = ZoneDomain.v().widen(isomorphic.sizes, curr.sizes);
+				res.sizes = widenedState;
 			}
-			iter2 = second.iterator();
+			disjuncts.add(res);
 		}
 
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(disjuncts);
-		return result;
+		return new DisjunctiveState<SLLGraph>(disjuncts);
 	}
 
 	@Override
 	public DisjunctiveState<SLLGraph> narrow(DisjunctiveState<SLLGraph> first, DisjunctiveState<SLLGraph> second) {
-		// Special treatment for top.
+		// Special treatment for bottom.
 		if (second == getBottom())
 			return first;
 
 		Set<SLLGraph> disjuncts = new HashSet<SLLGraph>();
+		
+		disjuncts.addAll(first.getDisjuncts());
 
-		Iterator<SLLGraph> iter1 = first.iterator();
-		Iterator<SLLGraph> iter2 = second.iterator();
-
-		while (iter1.hasNext()) {
-			SLLGraph curr1 = iter1.next();
-			while (iter2.hasNext()) {
-				SLLGraph curr2 = iter2.next();
-				if (curr1.equals(curr2)) // graphs are isomorphic
-				{
-					ZoneState narrowedState = ZoneDomain.v().narrow(curr1.sizes, curr2.sizes);
-					SLLGraph res = curr1.copy();
-					res.sizes = narrowedState;
-					disjuncts.add(res);
-				}
-				else {
-					disjuncts.add(curr1);
-					disjuncts.add(curr2);
-				}
+		
+		for (SLLGraph curr : second.getDisjuncts()) {
+			SLLGraph res = curr.copy();
+			SLLGraph isomorphic;
+			if ((isomorphic = getIsomorphicGraph(curr, first.getDisjuncts())) != null) {
+				ZoneState narrowedState = ZoneDomain.v().narrow(isomorphic.sizes, curr.sizes);
+				res.sizes = narrowedState;
 			}
-			iter2 = second.iterator();
+			disjuncts.add(res);
 		}
 
-		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(disjuncts);
-		return result;
+		return new DisjunctiveState<SLLGraph>(disjuncts);
 	}
 	
+	private SLLGraph getIsomorphicGraph(SLLGraph g, Set<SLLGraph> set) {
+		for (SLLGraph other : set)
+			if (g.equals(other))
+				return other;
+		return null;
+	}
+
 	@Override
 	public UnaryOperation<DisjunctiveState<SLLGraph>> getTransformer(Unit stmt) {
 		UnaryOperation<DisjunctiveState<SLLGraph>> vanillaTransformer = matcher.getTransformer(stmt);
@@ -262,9 +249,11 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 */
 	@Override
 	public DisjunctiveState<SLLGraph> reduce(DisjunctiveState<SLLGraph> input) {
+		if (isErrorState(input))
+			return input;
 		// Special treatment for bottom & top.
 		if (input == getBottom())
-			return getBottom();
+			return input;
 		if (input == getTop())
 			return getTop();
 
@@ -277,11 +266,22 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		return result;
 	}
 
+	private boolean isErrorState(DisjunctiveState<SLLGraph> input) {
+		if (input instanceof AssertLengthDiff.IncorrectLengthDiffState ||
+			input instanceof AssertNoGarbageTransformer.GarbageExistsState ||
+			input instanceof AssertAcyclicTransformer.NotAcyclicState ||
+			input instanceof AssertCyclicTransformer.NotCyclicState ||
+			input instanceof AssertReachableTransformer.NotReachableState ||
+			input instanceof AssertDisjointTransformer.NotDisjointState)
+			return true;
+		return false;
+	}
+
 	private DisjunctiveState<SLLGraph> copyDisjunctiveState(DisjunctiveState<SLLGraph> input) {
 		Set<SLLGraph> res = new HashSet<>();
 		Iterator<SLLGraph> iter = input.iterator();
 		while (iter.hasNext())
-			res.add(iter.next());
+			res.add(iter.next().copy());
 		return new DisjunctiveState<>(res);
 	}
 
@@ -490,13 +490,13 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			} else if (methodName.equals("analysisAssertNotNull")) {
 				transformer = new AssertNotNullTransformer((Local) expr.getArg(0));
 			} else if (methodName.equals("analysisAssertReachable")) {
-				// transformer = new AssertReachablelTransformer();
+				transformer = new AssertReachableTransformer((Local) expr.getArg(0), (Local) expr.getArg(1), (StringConstant) expr.getArg(2));
 			} else if (methodName.equals("analysisAssertAcyclic")) {
-				// transformer = new AssertAcyclicTransformer();
+				transformer = new AssertAcyclicTransformer((Local) expr.getArg(0), (StringConstant) expr.getArg(1));
 			} else if (methodName.equals("analysisAssertCyclic")) {
-				// transformer = new AssertCyclicTransformer();
+				transformer = new AssertCyclicTransformer((Local) expr.getArg(0), (StringConstant) expr.getArg(1));
 			} else if (methodName.equals("analysisAssertDisjoint")) {
-				// transformer = new AssertDisjointTransformer();
+				transformer = new AssertDisjointTransformer((Local) expr.getArg(0), (Local) expr.getArg(1), (StringConstant) expr.getArg(2));
 			} else if (methodName.equals("analysisAssertNoGarbage")) {
 				transformer = new AssertNoGarbageTransformer((StringConstant) expr.getArg(0));
 			} else if (methodName.equals("analysisLengthDiff")) {
@@ -934,9 +934,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				if (!found)
 					return new IncorrectLengthDiffState();
 			}
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
-			return result;
+			return new DisjunctiveState<>(disjuncts);
 		}
 	}
 	
@@ -992,9 +990,250 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				disjuncts.add(graph);
 			}
 			
-			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
-					disjuncts);
-			return result;
+			return new DisjunctiveState<>(disjuncts);
 		}
+	}
+}
+
+/**
+ * Our assert reachable transformer
+ * 
+ * @author saars & nevoma
+ */
+class AssertReachableTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
+
+	protected final Local first;
+	protected final Local second;
+	protected final StringConstant message;
+
+	protected class NotReachableState extends DisjunctiveState<SLLGraph> implements ErrorState {
+
+		public NotReachableState() {
+			super();
+		}
+		
+		@Override
+		public String getMessages() {
+			return message.value;
+		}
+
+	}
+
+	public AssertReachableTransformer(Local first, Local second, StringConstant message) {
+		this.first = first;
+		this.second = second;
+		this.message = message;
+	}
+
+	@Override
+	public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
+		Set<SLLGraph> disjuncts = new HashSet<>();
+		
+		for (SLLGraph graph : input) {
+			boolean found = false;
+			Node curr = graph.pointsTo(first);
+			Node target = graph.pointsTo(second);
+			while (curr != null) {
+				if (curr == target) {
+					found = true;
+					break;
+				}
+				curr = curr.next;
+			}
+
+			if (!found) {
+				return new NotReachableState();
+			}
+		
+			disjuncts.add(graph);
+		}
+		return new DisjunctiveState<>(disjuncts);
+	}
+}
+
+/**
+ * Our assert disjoint transformer
+ * 
+ * @author saars & nevoma
+ */
+class AssertDisjointTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
+
+	protected final Local first;
+	protected final Local second;
+	protected final StringConstant message;
+
+	protected class NotDisjointState extends DisjunctiveState<SLLGraph> implements ErrorState {
+
+		public NotDisjointState() {
+			super();
+		}
+		
+		@Override
+		public String getMessages() {
+			return message.value;
+		}
+
+	}
+
+	public AssertDisjointTransformer(Local first, Local second, StringConstant message) {
+		this.first = first;
+		this.second = second;
+		this.message = message;
+	}
+
+	@Override
+	public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
+		Set<SLLGraph> disjuncts = new HashSet<>();
+		
+		for (SLLGraph graph : input) {
+			int firstLen = 0;
+			int secondLen = 0;
+			Node currX = graph.pointsTo(first);
+			Node currY = graph.pointsTo(second);
+
+			while (currX != null)
+			{
+				firstLen++;
+				currX = currX.next;
+			}
+			while (currY != null)
+			{
+				secondLen++;
+				currY = currY.next;
+			}
+			
+			Node longer, shorter;
+			if (firstLen > secondLen) {
+				longer = graph.pointsTo(first);
+				shorter = graph.pointsTo(second);
+			}
+			else {
+				shorter = graph.pointsTo(first);
+				longer = graph.pointsTo(second);
+			}
+			
+			int lenDiff = Math.abs(firstLen - secondLen);
+			while(lenDiff > 0) {
+				longer = longer.next;
+				lenDiff--;
+			}
+			
+			while (longer != graph.nullNode) {
+				if (longer == shorter)
+					return new NotDisjointState();
+				longer = longer.next;
+				shorter = shorter.next;
+			}
+		}
+		return new DisjunctiveState<>(disjuncts);
+	}
+}
+
+/**
+ * Our assert cyclic transformer
+ * 
+ * @author saars & nevoma
+ */
+class AssertCyclicTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
+
+	protected final Local var;
+	protected final StringConstant message;
+
+	protected class NotCyclicState extends DisjunctiveState<SLLGraph> implements ErrorState {
+
+		public NotCyclicState() {
+			super();
+		}
+		
+		@Override
+		public String getMessages() {
+			return message.value;
+		}
+
+	}
+
+	public AssertCyclicTransformer(Local var, StringConstant message) {
+		this.var = var;
+		this.message = message;
+	}
+
+	@Override
+	public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
+		Set<SLLGraph> disjuncts = new HashSet<>();
+		
+		for (SLLGraph graph : input) {
+			boolean found = false;
+			Node curr = graph.pointsTo(var);
+			Node target = curr;
+			while (curr != null) {
+				if (curr.next == target) {
+					found = true;
+					break;
+				}
+				curr = curr.next;
+			}
+
+			if (!found) {
+				return new NotCyclicState();
+			}
+			
+			disjuncts.add(graph);
+		}
+		return new DisjunctiveState<>(
+				disjuncts);
+	}
+}
+
+/**
+ * Our assert acyclic transformer
+ * 
+ * @author saars & nevoma
+ */
+class AssertAcyclicTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
+
+	protected final Local var;
+	protected final StringConstant message;
+
+	protected class NotAcyclicState extends DisjunctiveState<SLLGraph> implements ErrorState {
+
+		public NotAcyclicState() {
+			super();
+		}
+		
+		@Override
+		public String getMessages() {
+			return message.value;
+		}
+
+	}
+
+	public AssertAcyclicTransformer(Local var, StringConstant message) {
+		this.var = var;
+		this.message = message;
+	}
+
+	@Override
+	public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
+		Set<SLLGraph> disjuncts = new HashSet<>();
+		
+		for (SLLGraph graph : input) {
+			boolean found = false;
+			Node curr = graph.pointsTo(var);
+			Node target = curr;
+			while (curr != null) {
+				if (curr.next == target) {
+					found = true;
+					break;					
+				}
+				curr = curr.next;
+			}
+
+			if (found) {
+				return new NotAcyclicState(); 
+			}
+			
+			disjuncts.add(graph);
+		}
+		return new DisjunctiveState<>(disjuncts);
 	}
 }

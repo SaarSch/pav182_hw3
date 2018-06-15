@@ -47,7 +47,6 @@ public class SLLBenchmarks {
 	/**
 	 * Asserts that 'x' and 'y' are disjoint. That is, following 'next' fields
 	 * from 'x' and from 'y' does not lead to a common node.<br>
-	 * TODO: implement assert states in SLLAnalysis.
 	 */
 	public static void analysisAssertDisjoint(SLLBenchmarks x, SLLBenchmarks y, String message) {
 	}
@@ -55,7 +54,6 @@ public class SLLBenchmarks {
 	/**
 	 * Asserts that the list starting from 'x' is acyclic. That is, starting
 	 * from 'x' and following the 'next' field eventually gets you to null.<br>
-	 * TODO: implement assert states in SLLAnalysis.
 	 */
 	public static void analysisAssertAcyclic(SLLBenchmarks x, String message) {
 	}
@@ -63,7 +61,6 @@ public class SLLBenchmarks {
 	/**
 	 * Asserts that 'x' references a cyclic list. That is, starting from 'x' and
 	 * following the 'next' field gets you back to 'x'.<br>
-	 * TODO: implement assert states in SLLAnalysis.
 	 */
 	public static void analysisAssertCyclic(SLLBenchmarks x, String message) {
 	}
@@ -74,7 +71,6 @@ public class SLLBenchmarks {
 	 * nodes are automatically collected at loop heads as part of the
 	 * abstraction. The best place therefore to have this assertion is as the
 	 * last statement of a loop.<br>
-	 * TODO: implement assert states in SLLAnalysis.
 	 */
 	public static void analysisAssertNoGarbage(String message) {
 	}
@@ -128,43 +124,6 @@ public class SLLBenchmarks {
 		return result;
 	}
 	
-	// TODO: Delete!
-	/*public SLLBenchmarks createAndPrint(int size) {
-		analysisInitAllNulls();
-
-		SLLBenchmarks head1 = null;
-		SLLBenchmarks head2 = null;
-		for (int i = 0; i < size; ++i) {
-			SLLBenchmarks n1 = new SLLBenchmarks();
-			n1.next = head1;
-			n1.data = i;
-			head1 = n1;
-
-			SLLBenchmarks n2 = new SLLBenchmarks();
-			n2.next = head2;
-			n2.data = i;
-			head2 = n2;
-		}
-		analysisAssertNoGarbage("Unable to prove absence of garbage in create!");
-
-		// Let's check that the two lists have the same length.
-		//analysisLengthDiff(head1, head2, 0, "Unable to assert size difference!");
-		//analysisLengthDiff(head2, head1, 0, "Unable to assert size difference!");
-
-		SLLBenchmarks t1 = head1;
-		SLLBenchmarks t2 = head2;
-		while (t1 != null) {
-			//System.out.println(t1.data);
-			//System.out.println(t2.data);
-			t1 = t1.next;
-			// Since we know that the two lists have the same length, the next dereference
-			// is safe.
-			t2 = t2.next;
-		}
-		return head1;
-	}*/
-	
-	// TODO: Delete!
 	public static void createAndPrintSmall() {
 		analysisInitAllNulls();
 		SLLBenchmarks head = new SLLBenchmarks();
