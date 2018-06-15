@@ -491,7 +491,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			} else if (methodName.equals("analysisAssertDisjoint")) {
 				// transformer = new AssertDisjointTransformer();
 			} else if (methodName.equals("analysisAssertNoGarbage")) {
-				// transformer = new AssertNoGarbageTransformer();
+				transformer = new AssertNoGarbageTransformer((StringConstant) expr.getArg(0));
 			} else if (methodName.equals("analysisLengthDiff")) {
 				transformer = new AssertLengthDiff((Local) expr.getArg(0), (Local) expr.getArg(1),
 						(IntConstant) expr.getArg(2), (StringConstant) expr.getArg(3));
@@ -879,15 +879,15 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		protected final IntConstant diff;
 		protected final StringConstant message;
 
-		protected class IncorrectLengthDiff extends DisjunctiveState<SLLGraph> implements ErrorState {
+		protected class IncorrectLengthDiffState extends DisjunctiveState<SLLGraph> implements ErrorState {
 
-			public IncorrectLengthDiff() {
+			public IncorrectLengthDiffState() {
 				super();
 			}
 			
 			@Override
 			public String getMessages() {
-				return "The length difference is incorrect";
+				return message.value;
 			}
 
 		}
@@ -926,8 +926,66 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				}
 
 				if (!found)
-					return new IncorrectLengthDiff();
+					return new IncorrectLengthDiffState();
 			}
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
+					disjuncts);
+			return result;
+		}
+	}
+	
+	/**
+	 * Assert no garbage transformer
+	 * 
+	 * @author saars & nevoma
+	 */
+	class AssertNoGarbageTransformer extends UnaryOperation<DisjunctiveState<SLLGraph>> {
+
+		protected final StringConstant message;
+
+		protected class GarbageExistsState extends DisjunctiveState<SLLGraph> implements ErrorState {
+
+			public GarbageExistsState() {
+				super();
+			}
+			
+			@Override
+			public String getMessages() {
+				return message.value;
+			}
+
+		}
+
+		public AssertNoGarbageTransformer(StringConstant message) {
+			this.message = message;
+		}
+
+		@Override
+		public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
+			Set<SLLGraph> disjuncts = new HashSet<>();
+			
+			for (SLLGraph graph : input) {
+				for (Node n1 : graph.nodes) {
+					if (n1 == graph.nullNode) {
+						continue;
+					}
+					if (n1.pointedBy.isEmpty()) {
+						boolean foundPrev = false;
+						for (Node n2 : graph.nodes) {
+							if (n2.next == n1)
+							{
+								foundPrev = true;
+								break;
+							}
+						}
+						if (!foundPrev) {
+							return new GarbageExistsState();
+						}
+					}
+				}
+				disjuncts.add(graph);
+			}
+			
 			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
 					disjuncts);
 			return result;

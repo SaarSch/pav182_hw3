@@ -137,7 +137,7 @@ public class SLLSizeBenchmarks {
 			n2.data = i;
 			head2 = n2;
 		}
-		//analysisAssertNoGarbage("Unable to prove absence of garbage in create!");
+		analysisAssertNoGarbage("Unable to prove absence of garbage in create!");
 
 		// Let's check that the two lists have the same length.
 		analysisLengthDiff(head1, head2, 0, "Unable to assert size difference!");
