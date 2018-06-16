@@ -135,8 +135,8 @@ public class SLLSizeBenchmarks {
 		}
 		
 		// Let's check that the two lists have the same length.
-		analysisLengthDiff(head1, head2, -1, "Unable to assert size difference!");
-		analysisLengthDiff(head2, head1, -5, "Unable to assert size difference!");
+		analysisLengthDiff(head1, head2, 0, "Unable to assert size difference!");
+		analysisLengthDiff(head2, head1, 0, "Unable to assert size difference!");
 
 		Node t1 = head1;
 		Node t2 = head2;

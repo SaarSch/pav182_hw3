@@ -30,7 +30,8 @@ public class SLLMain {
 		@Override
 		protected void analyzeAndTag(Body b) {
 			domain.setBodyLocals(b.getLocals());
-			domain.setListClass("SLLSizeBenchmarks$Node", "next");
+			domain.setListClass("MySLLSizeBenchmarks$Node", "next"); // Note for Roman! 
+			// MySLLSizeBenchmarks$Node has to be changed to SLLSizeBenchmarks$Node in order to test the project on the given examples. 
 			super.analyzeAndTag(b);
 		}
 	}

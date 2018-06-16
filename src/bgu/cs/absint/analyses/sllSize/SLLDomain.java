@@ -1124,6 +1124,8 @@ class AssertDisjointTransformer extends UnaryOperation<DisjunctiveState<SLLGraph
 				longer = longer.next;
 				shorter = shorter.next;
 			}
+			
+			disjuncts.add(graph);
 		}
 		return new DisjunctiveState<>(disjuncts);
 	}

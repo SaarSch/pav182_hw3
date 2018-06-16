@@ -96,7 +96,7 @@ public class MySLLSizeBenchmarks {
 		analysisAssertAcyclic(head, "Not acyclic!");
 		//analysisAssertCyclic(head, "Not cyclic!"); // gives an error as expected!
 
-		return head;
+		return null; // to prevent another error when the assertion fails
 	}
 	
 	/**
@@ -113,7 +113,7 @@ public class MySLLSizeBenchmarks {
 		analysisAssertCyclic(head, "Not cyclic!");
 		//analysisAssertAcyclic(head, "Not acyclic!"); // gives an error as expected!
 
-		return head;
+		return null; // to prevent another error when the assertion fails
 	}
 	
 	/**
@@ -128,7 +128,7 @@ public class MySLLSizeBenchmarks {
 		analysisAssertReachable(head, y, "Not reachable!");
 		//analysisAssertDisjoint(head, y, "Not disjoint!"); // gives an error as expected!
 
-		return head;
+		return null; // to prevent another error when the assertion fails
 	}
 	
 	/**
@@ -142,6 +142,6 @@ public class MySLLSizeBenchmarks {
 		analysisAssertDisjoint(head, y, "Not disjoint!");
 		//analysisAssertReachable(head, y, "Not reachable!"); // gives an error as expected!
 
-		return head;
+		return null; // to prevent another error when the assertion fails
 	}
 }

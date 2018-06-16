@@ -96,7 +96,7 @@ public class SLLGraph {
 			Node otherNode = matching.get(node);
 			result.pointsTo.put(var, otherNode);
 		}
-		
+
 		result.sizes = sizes.copy();
 
 		return result;
@@ -123,7 +123,7 @@ public class SLLGraph {
 		assert !nodes.contains(n);
 		if (n.next != null)
 			assert nodes.contains(n.next) : "Attempt to add a node where the next node is not part of the same graph!";
-		nodes.add(n);
+			nodes.add(n);
 	}
 
 	public void removeNode(Node n) {
@@ -162,33 +162,33 @@ public class SLLGraph {
 		//TODO: remove locals from ZoneState?
 		nodes.retainAll(reachable);
 	}
-	
+
 	public void addSizeFactoid(Node n, int edgeLenBound, boolean invertFactoid)
 	{
 		if (invertFactoid)
 			sizes.addFactoid(ZoneFactoid.ZERO_VAR, n.edgeLen, IntConstant.v(-edgeLenBound)); // add the Factoid: -x<=-edgeLenBound === x>=edgeLenBound
 		else
 			sizes.addFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(edgeLenBound)); // add the Factoid: x<=edgeLenBound
-		
+
 		//sizes = ZoneDomain.v().reduce(sizes);
 	}
-	
+
 	public void addSizeFactoid(Node n, int edgeLenBound)
 	{
 		addSizeFactoid(n, edgeLenBound, false);
 	}
-	
+
 	public void addSizeEqualsFactoids(Node n, int edgeLenBound)
 	{
 		addSizeFactoid(n, edgeLenBound, false); // edgeLen<=bound
 		addSizeFactoid(n, edgeLenBound, true); // edgeLen>=bound
 	}
-	
+
 	public boolean checkIfEdgeLenEquals(Node n, int len)
 	{
 		boolean res = false;
 		if (sizes == ZoneDomain.v().getBottom() ||
-			sizes == ZoneDomain.v().getTop())
+				sizes == ZoneDomain.v().getTop())
 			return res;
 		ZoneFactoid f1 = new ZoneFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(len));
 		ZoneFactoid f2 = new ZoneFactoid(ZoneFactoid.ZERO_VAR, n.edgeLen, IntConstant.v(-len));
@@ -278,20 +278,20 @@ public class SLLGraph {
 
 		return true;
 	}
-	
+
 	// Iterate over the graph in DFS, pointing the edgeLen Local of each node we encounter to the next Local
 	public void normalize() {
 		SLLDomain.v().clearAllocatedLens(); // start allocating len locals from 0
 		Set<Node> visited = new HashSet<>();
 		SortedSet<Local> sortedLocals = new TreeSet<Local>(
-	            new Comparator<Local>() {
-	                @Override
-	                public int compare(Local l1, Local l2) {
-	                    return l1.getName().compareTo(l2.getName());
-	                }
-	            });
+				new Comparator<Local>() {
+					@Override
+					public int compare(Local l1, Local l2) {
+						return l1.getName().compareTo(l2.getName());
+					}
+				});
 		sortedLocals.addAll(pointsTo.keySet()); // sorted
-	
+
 		Map<Local, Local> changes = new HashMap<>();
 		Iterator<Local> iter = sortedLocals.iterator();
 		while (iter.hasNext())
@@ -301,33 +301,37 @@ public class SLLGraph {
 			while (/*n != nullNode &&*/ n != null && !visited.contains(n))
 			{
 				Local lenLocal = SLLDomain.v().getLenLocal();
-				for (ZoneFactoid f : sizes.getFactoids())
-				{
-					if (f.lhs == n.edgeLen)
-						changes.put(f.lhs, lenLocal);
-					else if (f.rhs == n.edgeLen)
-						changes.put(f.rhs, lenLocal);
-				}			
-				
+				if (sizes.getFactoids() != null) {
+					for (ZoneFactoid f : sizes.getFactoids())
+					{
+						if (f.lhs == n.edgeLen)
+							changes.put(f.lhs, lenLocal);
+						else if (f.rhs == n.edgeLen)
+							changes.put(f.rhs, lenLocal);
+					}			
+				}		
+
 				n.edgeLen = lenLocal;
 				visited.add(n);
 				n = n.next;
 			}
 		}
-		
+
 		List<ZoneFactoid> newFactoids = new ArrayList<>();
-		for (ZoneFactoid f : sizes.getFactoids())
-		{
-			if (changes.containsKey(f.lhs) && changes.containsKey(f.rhs))
-				newFactoids.add(new ZoneFactoid(changes.get(f.lhs), changes.get(f.rhs), f.bound));
-			else if (changes.containsKey(f.lhs))
-				newFactoids.add(new ZoneFactoid(changes.get(f.lhs), f.rhs, f.bound));
-			else if (changes.containsKey(f.rhs))
-				newFactoids.add(new ZoneFactoid(f.lhs, changes.get(f.rhs), f.bound));
-			else
-				newFactoids.add(new ZoneFactoid(f.lhs, f.rhs, f.bound));
+		if (sizes.getFactoids() != null) {
+			for (ZoneFactoid f : sizes.getFactoids())
+			{
+				if (changes.containsKey(f.lhs) && changes.containsKey(f.rhs))
+					newFactoids.add(new ZoneFactoid(changes.get(f.lhs), changes.get(f.rhs), f.bound));
+				else if (changes.containsKey(f.lhs))
+					newFactoids.add(new ZoneFactoid(changes.get(f.lhs), f.rhs, f.bound));
+				else if (changes.containsKey(f.rhs))
+					newFactoids.add(new ZoneFactoid(f.lhs, changes.get(f.rhs), f.bound));
+				else
+					newFactoids.add(new ZoneFactoid(f.lhs, f.rhs, f.bound));
+			}
 		}
-		
+
 		ZoneState newState = new ZoneState();
 		for (ZoneFactoid f : newFactoids)
 			newState.add(f);
@@ -375,7 +379,7 @@ public class SLLGraph {
 			if (factoid.hasVar(var))
 			{
 				if (factoid.rhs == ZoneFactoid.ZERO_VAR // x <= c
-					|| factoid.lhs == ZoneFactoid.ZERO_VAR) // -x <= -c
+						|| factoid.lhs == ZoneFactoid.ZERO_VAR) // -x <= -c
 					return factoid.bound.value;
 			}
 		}
