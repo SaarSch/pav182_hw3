@@ -87,6 +87,43 @@ public class MySLLSizeBenchmarks {
 	///////////////////////////////////////////////////////////////////////////
 
 	/**
+	 * Like createAndPrint, but the second diff assert shouldn't pass 
+	 */
+	public Node createAndPrintError(int size) {
+		analysisInitAllNulls();
+		Node head1 = null;
+		Node head2 = null;
+		for (int i = 0; i < size; ++i) {
+			Node n1 = new Node();
+			n1.next = head1;
+			n1.data = i;
+			head1 = n1;
+
+			Node n2 = new Node();
+			n2.next = head2;
+			n2.data = i;
+			head2 = n2;
+			
+			analysisAssertNoGarbage("Unable to prove absence of garbage in create!");
+		}
+		
+		analysisLengthDiff(head1, head2, 5, "Unable to assert size difference!"); // pass
+		analysisLengthDiff(head2, head1, -5, "Unable to assert size difference!"); // fail
+
+		Node t1 = head1;
+		Node t2 = head2;
+		while (t1 != null) {
+			//System.out.println(t1.data);
+			//System.out.println(t2.data);
+			t1 = t1.next;
+			// Since we know that the two lists have the same length, the next dereference
+			// is safe.
+			t2 = t2.next;
+		}
+		return head1;
+	}
+	
+	/**
 	 * Creates an acylic list and assert its state.
 	 * 
 	 */

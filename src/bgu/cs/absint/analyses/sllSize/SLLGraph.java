@@ -123,7 +123,7 @@ public class SLLGraph {
 		assert !nodes.contains(n);
 		if (n.next != null)
 			assert nodes.contains(n.next) : "Attempt to add a node where the next node is not part of the same graph!";
-			nodes.add(n);
+		nodes.add(n);
 	}
 
 	public void removeNode(Node n) {

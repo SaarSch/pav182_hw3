@@ -922,15 +922,31 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					continue;
 				}
 				
+				if (n1 == n2 && diff.value >= 0) { 
+					disjuncts.add(graph);
+					continue;
+				}
+				
 				ZoneFactoid factToLookFor = new ZoneFactoid(n1.edgeLen, n2.edgeLen, diff);
-				for (ZoneFactoid f : reduced.getFactoids()) {
-					if (f.eq(factToLookFor)) {
-						disjuncts.add(graph);
-						found = true;
-						break;
+				int maxBound = Integer.MIN_VALUE;
+				boolean noSuchFactoid = true;
+				
+				for (ZoneFactoid f : reduced.getFactoids()) { // get the maximal bound (x) of len1-len2<=x
+					if (f.lhs == factToLookFor.lhs && f.rhs == factToLookFor.rhs) {
+						noSuchFactoid = false;
+						if (f.bound.value > maxBound)
+							maxBound = f.bound.value;
 					}
 				}
+				
+				if (noSuchFactoid)
+					return new IncorrectLengthDiffState();
 
+				if (maxBound <= factToLookFor.bound.value) {
+					found = true;
+					disjuncts.add(graph);
+				}
+				
 				if (!found)
 					return new IncorrectLengthDiffState();
 			}
