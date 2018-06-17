@@ -720,6 +720,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				} else {
 					SLLGraph disjunct = graph.copy();
 					lhsNode.next = disjunct.nullNode;
+					disjunct.sizes.removeVar(lhsNode.edgeLen);
 					disjunct.normalize();
 					disjunct.addSizeEqualsFactoids(lhsNode, 1);
 					disjuncts.add(disjunct);
@@ -755,6 +756,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					Node lhsNode = disjunct.pointsTo(lhs);
 					Node rhsNode = disjunct.pointsTo(rhs);
 					lhsNode.next = rhsNode;
+					disjunct.sizes.removeVar(lhsNode.edgeLen);
 					disjunct.normalize();
 					disjunct.addSizeEqualsFactoids(lhsNode, 1);
 					disjuncts.add(disjunct);

@@ -124,188 +124,6 @@ public class MySLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 82 eline: 82 spos: 74 epos: 87 file: MySLLSizeBenchmarks.java*/
     }
 
-/*[size]*/
-    public MySLLSizeBenchmarks$Node createAndPrintError(int)
-    {
-        MySLLSizeBenchmarks this;
-        int size, i, temp$2;
-        MySLLSizeBenchmarks$Node head1, head2, n1, temp$0, n2, temp$1, t1, t2, temp$3, temp$4;
-
-        this := @this: MySLLSizeBenchmarks;
-/*Source Line Pos Tag: sline: 92 eline: 124 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
-/*V[1] = V[0] // this := @this: MySLLSizeBenchmarks*/
-/*V[1] : true*/
-/*V[0] = true // this := @this: MySLLSizeBenchmarks*/
-/*V[0] : true*/
-        size := @parameter0: int;
-/*Source Line Pos Tag: sline: 92 eline: 92 spos: 34 epos: 41 file: MySLLSizeBenchmarks.java*/
-/*V[2] = V[1] // size := @parameter0: int*/
-/*V[2] : true*/
-        staticinvoke <MySLLSizeBenchmarks: void analysisInitAllNulls()>();
-/*Source Line Pos Tag: sline: 93 eline: 93 spos: 3 epos: 25 file: MySLLSizeBenchmarks.java*/
-/*V[3] = Reduce_SLLDomain(InitAllNullsTransformer(V[2])) // staticinvoke <MySLLSizeBenchmarks: void analysisInitAllNulls()>()*/
-/*V[3] : graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
-        head1 = null;
-/*Source Line Pos Tag: sline: 94 eline: 94 spos: 3 epos: 20 file: MySLLSizeBenchmarks.java*/
-/*V[4] = Reduce_SLLDomain(AssignNullTransformer(V[3])) // head1 = null*/
-/*V[4] : graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
-        head2 = null;
-/*Source Line Pos Tag: sline: 95 eline: 95 spos: 3 epos: 20 file: MySLLSizeBenchmarks.java*/
-/*V[5] = Reduce_SLLDomain(AssignNullTransformer(V[4])) // head2 = null*/
-/*V[5] : graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
-        i = 0;
-/*Source Line Pos Tag: sline: 96 eline: 96 spos: 8 epos: 16 file: MySLLSizeBenchmarks.java*/
-/*V[6] = V[5] // i = 0*/
-/*V[6] : graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
-
-     label1:
-        if i < size goto label2;
-/*Source Line Pos Tag: sline: 96 eline: 96 spos: 19 epos: 26 file: MySLLSizeBenchmarks.java*/
-/*V[8] = V[10] // assume !(i < size)*/
-/*V[8] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-/*V[7] = V[10] // assume i < size*/
-/*V[7] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-/*V[10] = SLLDomain[Widening|Narrowing](V[10], V[9]) // if i < size goto temp$0 = new MySLLSizeBenchmarks$Node*/
-/*V[10] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len3-len4<=0, V0-len2<=-1, len1-len2<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len3-len4<=0, V0-len2<=-1, len1-len2<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len4-len2<=0, len2-len0<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-/*V[9] = JoinLoop_SLLDomain(V[6], V[27]) // if i < size goto temp$0 = new MySLLSizeBenchmarks$Node*/
-/*V[9] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-
-        goto label3;
-/*Source Line Pos Tag: sline: 96 eline: 96 spos: 19 epos: 26 file: MySLLSizeBenchmarks.java*/
-/*V[11] = V[8] // goto [?= staticinvoke <MySLLSizeBenchmarks: void analysisLengthDiff(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,int,java.lang.String)>(head1, head2, 5, "Unable to assert size difference!")]*/
-/*V[11] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-
-     label2:
-        temp$0 = new MySLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 97 eline: 97 spos: 4 epos: 24 file: MySLLSizeBenchmarks.java*/
-/*V[12] = Reduce_SLLDomain(AssignNewExprToLocalTransformer(V[7])) // temp$0 = new MySLLSizeBenchmarks$Node*/
-/*V[12] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=n0, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]})*/
-        specialinvoke temp$0.<MySLLSizeBenchmarks$Node: void <init>()>();
-/*Source Line Pos Tag: sline: 97 eline: 97 spos: 14 epos: 23 file: MySLLSizeBenchmarks.java*/
-/*V[13] = V[12] // specialinvoke temp$0.<MySLLSizeBenchmarks$Node: void <init>()>()*/
-/*V[13] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=n0, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]})*/
-        n1 = temp$0;
-/*Source Line Pos Tag: sline: 97 eline: 97 spos: 14 epos: 23 file: MySLLSizeBenchmarks.java*/
-/*V[14] = Reduce_SLLDomain(AssignRefToRefTransformer(V[13])) // n1 = temp$0*/
-/*V[14] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=n0, n1=n0, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]})*/
-        n1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head1;
-/*Source Line Pos Tag: sline: 98 eline: 98 spos: 7 epos: 10 file: MySLLSizeBenchmarks.java*/
-/*V[15] = Reduce_SLLDomain(AssignLocalToNextFieldTransformer(V[14])) // n1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head1*/
-/*V[15] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=n0, n1=n0, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]})*/
-        n1.<MySLLSizeBenchmarks$Node: int data> = i;
-/*Source Line Pos Tag: sline: 99 eline: 99 spos: 7 epos: 10 file: MySLLSizeBenchmarks.java*/
-/*V[16] = V[15] // n1.<MySLLSizeBenchmarks$Node: int data> = i*/
-/*V[16] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=n0, n1=n0, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]})*/
-        head1 = n1;
-/*Source Line Pos Tag: sline: 100 eline: 100 spos: 4 epos: 8 file: MySLLSizeBenchmarks.java*/
-/*V[17] = Reduce_SLLDomain(AssignRefToRefTransformer(V[16])) // head1 = n1*/
-/*V[17] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]})*/
-        temp$1 = new MySLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 102 eline: 102 spos: 4 epos: 24 file: MySLLSizeBenchmarks.java*/
-/*V[18] = Reduce_SLLDomain(AssignNewExprToLocalTransformer(V[17])) // temp$1 = new MySLLSizeBenchmarks$Node*/
-/*V[18] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=null, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        specialinvoke temp$1.<MySLLSizeBenchmarks$Node: void <init>()>();
-/*Source Line Pos Tag: sline: 102 eline: 102 spos: 14 epos: 23 file: MySLLSizeBenchmarks.java*/
-/*V[19] = V[18] // specialinvoke temp$1.<MySLLSizeBenchmarks$Node: void <init>()>()*/
-/*V[19] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=null, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        n2 = temp$1;
-/*Source Line Pos Tag: sline: 102 eline: 102 spos: 14 epos: 23 file: MySLLSizeBenchmarks.java*/
-/*V[20] = Reduce_SLLDomain(AssignRefToRefTransformer(V[19])) // n2 = temp$1*/
-/*V[20] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        n2.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head2;
-/*Source Line Pos Tag: sline: 103 eline: 103 spos: 7 epos: 10 file: MySLLSizeBenchmarks.java*/
-/*V[21] = Reduce_SLLDomain(AssignLocalToNextFieldTransformer(V[20])) // n2.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head2*/
-/*V[21] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        n2.<MySLLSizeBenchmarks$Node: int data> = i;
-/*Source Line Pos Tag: sline: 104 eline: 104 spos: 7 epos: 10 file: MySLLSizeBenchmarks.java*/
-/*V[22] = V[21] // n2.<MySLLSizeBenchmarks$Node: int data> = i*/
-/*V[22] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        head2 = n2;
-/*Source Line Pos Tag: sline: 105 eline: 105 spos: 4 epos: 8 file: MySLLSizeBenchmarks.java*/
-/*V[23] = Reduce_SLLDomain(AssignRefToRefTransformer(V[22])) // head2 = n2*/
-/*V[23] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        staticinvoke <MySLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!");
-/*Source Line Pos Tag: sline: 107 eline: 107 spos: 4 epos: 76 file: MySLLSizeBenchmarks.java*/
-/*V[24] = Reduce_SLLDomain(AssertNoGarbageTransformer(V[23])) // staticinvoke <MySLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!")*/
-/*V[24] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        temp$2 = i + 1;
-/*Source Line Pos Tag: sline: 96 eline: 96 spos: 29 epos: 31 file: MySLLSizeBenchmarks.java*/
-/*V[25] = V[24] // temp$2 = i + 1*/
-/*V[25] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        i = temp$2;
-/*Source Line Pos Tag: sline: 96 eline: 96 spos: 31 epos: 31 file: MySLLSizeBenchmarks.java*/
-/*V[26] = V[25] // i = temp$2*/
-/*V[26] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        goto label1;
-/*Source Line Pos Tag: sline: 96 eline: 108 spos: 3 epos: 3 file: MySLLSizeBenchmarks.java*/
-/*V[27] = V[26] // goto [?= (branch)]*/
-/*V[27] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-
-     label3:
-        staticinvoke <MySLLSizeBenchmarks: void analysisLengthDiff(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,int,java.lang.String)>(head1, head2, 5, "Unable to assert size difference!");
-/*Source Line Pos Tag: sline: 110 eline: 110 spos: 3 epos: 75 file: MySLLSizeBenchmarks.java*/
-/*V[28] = Reduce_SLLDomain(AssertLengthDiff(V[11])) // staticinvoke <MySLLSizeBenchmarks: void analysisLengthDiff(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,int,java.lang.String)>(head1, head2, 5, "Unable to assert size difference!")*/
-/*V[28] : or(graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len3-len4<=0, V0-len2<=-1, len1-len2<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
-        staticinvoke <MySLLSizeBenchmarks: void analysisLengthDiff(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,int,java.lang.String)>(head2, head1, -5, "Unable to assert size difference!");
-/*Source Line Pos Tag: sline: 111 eline: 111 spos: 3 epos: 76 file: MySLLSizeBenchmarks.java*/
-/*V[29] = Reduce_SLLDomain(AssertLengthDiff(V[28])) // staticinvoke <MySLLSizeBenchmarks: void analysisLengthDiff(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,int,java.lang.String)>(head2, head1, -5, "Unable to assert size difference!")*/
-/*V[29] : false*/
-/*Possible error!*/
-        t1 = head1;
-/*Source Line Pos Tag: sline: 113 eline: 113 spos: 3 epos: 18 file: MySLLSizeBenchmarks.java*/
-/*V[30] = Reduce_SLLDomain(AssignRefToRefTransformer(V[29])) // t1 = head1*/
-/*V[30] : false*/
-        t2 = head2;
-/*Source Line Pos Tag: sline: 114 eline: 114 spos: 3 epos: 18 file: MySLLSizeBenchmarks.java*/
-/*V[31] = Reduce_SLLDomain(AssignRefToRefTransformer(V[30])) // t2 = head2*/
-/*V[31] : false*/
-
-     label4:
-        if t1 != null goto label5;
-/*Source Line Pos Tag: sline: 115 eline: 115 spos: 10 epos: 19 file: MySLLSizeBenchmarks.java*/
-/*V[32] = Reduce_SLLDomain(!AssumeLocalEqNullTransformer(V[35])) // assume t1 != null*/
-/*V[32] : false*/
-/*V[34] = JoinLoop_SLLDomain(V[31], V[41]) // if t1 != null goto temp$3 = t1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
-/*V[34] : false*/
-/*V[35] = SLLDomain[Widening|Narrowing](V[35], V[34]) // if t1 != null goto temp$3 = t1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
-/*V[35] : graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
-/*V[33] = Reduce_SLLDomain(AssumeLocalEqNullTransformer(V[35])) // assume !(t1 != null)*/
-/*V[33] : graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
-
-        goto label6;
-/*Source Line Pos Tag: sline: 115 eline: 115 spos: 10 epos: 19 file: MySLLSizeBenchmarks.java*/
-/*V[36] = V[33] // goto [?= return head1]*/
-/*V[36] : graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
-
-     label5:
-        temp$3 = t1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>;
-/*Source Line Pos Tag: sline: 118 eline: 118 spos: 4 epos: 16 file: MySLLSizeBenchmarks.java*/
-/*V[37] = Reduce_SLLDomain(AssignNextToLocalTransformer(V[32])) // temp$3 = t1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
-/*V[37] : false*/
-        t1 = temp$3;
-/*Source Line Pos Tag: sline: 118 eline: 118 spos: 4 epos: 5 file: MySLLSizeBenchmarks.java*/
-/*V[38] = Reduce_SLLDomain(AssignRefToRefTransformer(V[37])) // t1 = temp$3*/
-/*V[38] : false*/
-        temp$4 = t2.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>;
-/*Source Line Pos Tag: sline: 121 eline: 121 spos: 4 epos: 16 file: MySLLSizeBenchmarks.java*/
-/*V[39] = Reduce_SLLDomain(AssignNextToLocalTransformer(V[38])) // temp$4 = t2.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
-/*V[39] : false*/
-        t2 = temp$4;
-/*Source Line Pos Tag: sline: 121 eline: 121 spos: 4 epos: 5 file: MySLLSizeBenchmarks.java*/
-/*V[40] = Reduce_SLLDomain(AssignRefToRefTransformer(V[39])) // t2 = temp$4*/
-/*V[40] : false*/
-        goto label4;
-/*Source Line Pos Tag: sline: 115 eline: 122 spos: 3 epos: 3 file: MySLLSizeBenchmarks.java*/
-/*V[41] = V[40] // goto [?= (branch)]*/
-/*V[41] : false*/
-
-     label6:
-        return head1;
-/*Source Line Pos Tag: sline: 123 eline: 123 spos: 3 epos: 15 file: MySLLSizeBenchmarks.java*/
-/*V[42] = V[36] // return head1*/
-/*V[42] : graph = {temp$4=null, temp$3=null, t2=null, t1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
-    }
-
 /*[head]*/
     public MySLLSizeBenchmarks$Node testAcyclic(MySLLSizeBenchmarks$Node)
     {
@@ -313,29 +131,29 @@ public class MySLLSizeBenchmarks extends java.lang.Object
         MySLLSizeBenchmarks$Node head, temp$0;
 
         this := @this: MySLLSizeBenchmarks;
-/*Source Line Pos Tag: sline: 130 eline: 137 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
-/*V[0] = true // this := @this: MySLLSizeBenchmarks*/
-/*V[0] : true*/
+/*Source Line Pos Tag: sline: 95 eline: 102 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
 /*V[1] = V[0] // this := @this: MySLLSizeBenchmarks*/
 /*V[1] : true*/
+/*V[0] = true // this := @this: MySLLSizeBenchmarks*/
+/*V[0] : true*/
         head := @parameter0: MySLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 130 eline: 130 spos: 26 epos: 34 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 95 eline: 95 spos: 26 epos: 34 file: MySLLSizeBenchmarks.java*/
 /*V[2] = V[1] // head := @parameter0: MySLLSizeBenchmarks$Node*/
 /*V[2] : true*/
         staticinvoke <MySLLSizeBenchmarks: void analysisInitAcyclic(MySLLSizeBenchmarks$Node)>(head);
-/*Source Line Pos Tag: sline: 131 eline: 131 spos: 3 epos: 28 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 96 eline: 96 spos: 3 epos: 28 file: MySLLSizeBenchmarks.java*/
 /*V[3] = Reduce_SLLDomain(InitAcyclicTransformer(V[2])) // staticinvoke <MySLLSizeBenchmarks: void analysisInitAcyclic(MySLLSizeBenchmarks$Node)>(head)*/
 /*V[3] : or(graph = {temp$0=null, head=null, ZoneState: [true]}, graph = {temp$0=null, head=n0, n0~>null, ZoneState: [V0-len0<=-2]}, graph = {temp$0=null, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]})*/
         staticinvoke <MySLLSizeBenchmarks: void analysisAssertAcyclic(MySLLSizeBenchmarks$Node,java.lang.String)>(head, "Not acyclic!");
-/*Source Line Pos Tag: sline: 133 eline: 133 spos: 3 epos: 46 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 98 eline: 98 spos: 3 epos: 46 file: MySLLSizeBenchmarks.java*/
 /*V[4] = Reduce_SLLDomain(AssertAcyclicTransformer(V[3])) // staticinvoke <MySLLSizeBenchmarks: void analysisAssertAcyclic(MySLLSizeBenchmarks$Node,java.lang.String)>(head, "Not acyclic!")*/
 /*V[4] : or(graph = {temp$0=null, head=null, ZoneState: [true]}, graph = {temp$0=null, head=n0, n0~>null, ZoneState: [V0-len0<=-2]}, graph = {temp$0=null, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]})*/
         temp$0 = null;
-/*Source Line Pos Tag: sline: 133 eline: 133 spos: 3 epos: 46 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 98 eline: 98 spos: 3 epos: 46 file: MySLLSizeBenchmarks.java*/
 /*V[5] = Reduce_SLLDomain(AssignNullTransformer(V[4])) // temp$0 = null*/
 /*V[5] : or(graph = {temp$0=null, head=null, ZoneState: [true]}, graph = {temp$0=null, head=n0, n0~>null, ZoneState: [V0-len0<=-2]}, graph = {temp$0=null, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]})*/
         return temp$0;
-/*Source Line Pos Tag: sline: 136 eline: 136 spos: 3 epos: 14 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 101 eline: 101 spos: 3 epos: 14 file: MySLLSizeBenchmarks.java*/
 /*V[6] = V[5] // return temp$0*/
 /*V[6] : or(graph = {temp$0=null, head=null, ZoneState: [true]}, graph = {temp$0=null, head=n0, n0~>null, ZoneState: [V0-len0<=-2]}, graph = {temp$0=null, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]})*/
     }
@@ -347,76 +165,76 @@ public class MySLLSizeBenchmarks extends java.lang.Object
         MySLLSizeBenchmarks$Node head, curr, temp$0, temp$1, temp$2;
 
         this := @this: MySLLSizeBenchmarks;
-/*Source Line Pos Tag: sline: 143 eline: 154 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
-/*V[0] = true // this := @this: MySLLSizeBenchmarks*/
-/*V[0] : true*/
+/*Source Line Pos Tag: sline: 108 eline: 119 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
 /*V[1] = V[0] // this := @this: MySLLSizeBenchmarks*/
 /*V[1] : true*/
+/*V[0] = true // this := @this: MySLLSizeBenchmarks*/
+/*V[0] : true*/
         head := @parameter0: MySLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 143 eline: 143 spos: 25 epos: 33 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 108 eline: 108 spos: 25 epos: 33 file: MySLLSizeBenchmarks.java*/
 /*V[2] = V[1] // head := @parameter0: MySLLSizeBenchmarks$Node*/
 /*V[2] : true*/
         staticinvoke <MySLLSizeBenchmarks: void analysisInitAcyclic(MySLLSizeBenchmarks$Node)>(head);
-/*Source Line Pos Tag: sline: 144 eline: 144 spos: 3 epos: 28 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 109 eline: 109 spos: 3 epos: 28 file: MySLLSizeBenchmarks.java*/
 /*V[3] = Reduce_SLLDomain(InitAcyclicTransformer(V[2])) // staticinvoke <MySLLSizeBenchmarks: void analysisInitAcyclic(MySLLSizeBenchmarks$Node)>(head)*/
 /*V[3] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=null, head=n0, n0~>null, ZoneState: [V0-len1<=-2]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=null, head=null, ZoneState: [true]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=null, head=n0, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]})*/
         curr = head;
-/*Source Line Pos Tag: sline: 145 eline: 145 spos: 3 epos: 19 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 110 eline: 110 spos: 3 epos: 19 file: MySLLSizeBenchmarks.java*/
 /*V[4] = Reduce_SLLDomain(AssignRefToRefTransformer(V[3])) // curr = head*/
 /*V[4] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=null, head=null, ZoneState: [true]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0~>null, ZoneState: [V0-len0<=-2]})*/
 
      label1:
         temp$0 = curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>;
-/*Source Line Pos Tag: sline: 146 eline: 146 spos: 10 epos: 26 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 111 eline: 111 spos: 10 epos: 26 file: MySLLSizeBenchmarks.java*/
 /*V[6] = JoinLoop_SLLDomain(V[4], V[13]) // temp$0 = curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
 /*V[6] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0, len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0)]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=null, head=null, ZoneState: [true]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0~>null, ZoneState: [V0-len0<=-2]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len3-len0<=-1, len2-len0<=-1, V0-len0<=-2, len3-len2<=0, V0-len0<=-1, len2-len3<=0, V0-len2<=-1, V0-len3<=-1, len3-V0<=1, len2-V0<=1)]})*/
-/*V[5] = Reduce_SLLDomain(AssignNextToLocalTransformer(V[7])) // temp$0 = curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
-/*V[5] : or(graph = {temp$2=null, temp$1=n1, temp$0=n2, curr=n1, head=n0, n0.next=n1, n1.next=n2, n2.next=null, ZoneState: [and(len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$2=null, temp$1=null, temp$0=n1, curr=n0, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(V0-len0<=-1, len1-len0<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0)]}, graph = {temp$2=null, temp$1=null, temp$0=n1, curr=n0, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len0-len1<=-1, V0-len1<=-2, V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n2, curr=n1, head=n0, n0.next=n1, n1.next=n2, n2~>null, ZoneState: [and(len3-len1<=-1, len3-len0<=0, len0-len1<=-1, V0-len1<=-2, V0-len0<=-1, len0-V0<=1, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-V0<=1)]})*/
 /*V[7] = SLLDomain[Widening|Narrowing](V[7], V[6]) // temp$0 = curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
 /*V[7] : or(graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len3-len0<=-1, len2-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-len3<=0, V0-len3<=-1, len3-V0<=1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=null, head=null, ZoneState: [true]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0~>null, ZoneState: [V0-len0<=-2]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0~>null, ZoneState: [len0-V0<=1]})*/
+/*V[5] = Reduce_SLLDomain(AssignNextToLocalTransformer(V[7])) // temp$0 = curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
+/*V[5] : or(graph = {temp$2=null, temp$1=n1, temp$0=n2, curr=n1, head=n0, n0.next=n1, n1.next=n2, n2.next=null, ZoneState: [and(len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$2=null, temp$1=null, temp$0=n1, curr=n0, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(V0-len0<=-1, len1-len0<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0)]}, graph = {temp$2=null, temp$1=null, temp$0=n1, curr=n0, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len0-len1<=-1, V0-len1<=-2, V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n2, curr=n1, head=n0, n0.next=n1, n1.next=n2, n2~>null, ZoneState: [and(len3-len1<=-1, len3-len0<=0, len0-len1<=-1, V0-len1<=-2, V0-len0<=-1, len0-V0<=1, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-V0<=1)]})*/
         if temp$0 != null goto label2;
-/*Source Line Pos Tag: sline: 146 eline: 146 spos: 10 epos: 26 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 111 eline: 111 spos: 10 epos: 26 file: MySLLSizeBenchmarks.java*/
 /*V[8] = Reduce_SLLDomain(!AssumeLocalEqNullTransformer(V[5])) // assume temp$0 != null*/
 /*V[8] : or(graph = {temp$2=null, temp$1=null, temp$0=n1, curr=n0, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len0-len1<=-1, V0-len1<=-2, V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=null, temp$0=n1, curr=n0, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(V0-len0<=-1, len1-len0<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0)]}, graph = {temp$2=null, temp$1=n1, temp$0=n2, curr=n1, head=n0, n0.next=n1, n1.next=n2, n2.next=null, ZoneState: [and(len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$2=null, temp$1=n1, temp$0=n2, curr=n1, head=n0, n0.next=n1, n1.next=n2, n2~>null, ZoneState: [and(len3-len1<=-1, len3-len0<=0, len0-len1<=-1, V0-len1<=-2, V0-len0<=-1, len0-V0<=1, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]})*/
 /*V[9] = Reduce_SLLDomain(AssumeLocalEqNullTransformer(V[5])) // assume !(temp$0 != null)*/
 /*V[9] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-V0<=1)]})*/
 
         goto label3;
-/*Source Line Pos Tag: sline: 146 eline: 146 spos: 10 epos: 26 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 111 eline: 111 spos: 10 epos: 26 file: MySLLSizeBenchmarks.java*/
 /*V[10] = V[9] // goto [?= curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head]*/
 /*V[10] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-V0<=1)]})*/
 
      label2:
         temp$1 = curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>;
-/*Source Line Pos Tag: sline: 147 eline: 147 spos: 4 epos: 20 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 112 eline: 112 spos: 4 epos: 20 file: MySLLSizeBenchmarks.java*/
 /*V[11] = Reduce_SLLDomain(AssignNextToLocalTransformer(V[8])) // temp$1 = curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
 /*V[11] : or(graph = {temp$2=null, temp$1=n2, temp$0=n2, curr=n1, head=n0, n0.next=n1, n1.next=n2, n2~>null, ZoneState: [and(len3-len1<=-1, len3-len0<=0, len0-len1<=-1, V0-len1<=-2, V0-len0<=-1, len0-V0<=1, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n0, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(V0-len0<=-1, len1-len0<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0)]}, graph = {temp$2=null, temp$1=n2, temp$0=n2, curr=n1, head=n0, n0.next=n1, n1.next=n2, n2.next=null, ZoneState: [and(len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n0, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len0-len1<=-1, V0-len1<=-2, V0-len0<=-1, len0-V0<=1)]})*/
         curr = temp$1;
-/*Source Line Pos Tag: sline: 147 eline: 147 spos: 4 epos: 7 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 112 eline: 112 spos: 4 epos: 7 file: MySLLSizeBenchmarks.java*/
 /*V[12] = Reduce_SLLDomain(AssignRefToRefTransformer(V[11])) // curr = temp$1*/
 /*V[12] : or(graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n2, temp$0=n2, curr=n2, head=n0, n0.next=n1, n1.next=n2, n2~>null, ZoneState: [and(len3-len0<=-1, len2-len0<=-1, V0-len0<=-2, len3-len2<=0, len2-len3<=0, V0-len2<=-1, V0-len3<=-1, len3-V0<=1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n2, temp$0=n2, curr=n2, head=n0, n0.next=n1, n1.next=n2, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]})*/
         goto label1;
-/*Source Line Pos Tag: sline: 146 eline: 148 spos: 3 epos: 3 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 111 eline: 113 spos: 3 epos: 3 file: MySLLSizeBenchmarks.java*/
 /*V[13] = V[12] // goto [?= temp$0 = curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>]*/
 /*V[13] : or(graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, V0-len2<=-1, len0-V0<=1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=n1, curr=n1, head=n0, n0.next=n1, n1~>null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n2, temp$0=n2, curr=n2, head=n0, n0.next=n1, n1.next=n2, n2~>null, ZoneState: [and(len3-len0<=-1, len2-len0<=-1, V0-len0<=-2, len3-len2<=0, len2-len3<=0, V0-len2<=-1, V0-len3<=-1, len3-V0<=1, len2-V0<=1)]}, graph = {temp$2=null, temp$1=n2, temp$0=n2, curr=n2, head=n0, n0.next=n1, n1.next=n2, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]})*/
 
      label3:
         curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head;
-/*Source Line Pos Tag: sline: 149 eline: 149 spos: 8 epos: 11 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 114 eline: 114 spos: 8 epos: 11 file: MySLLSizeBenchmarks.java*/
 /*V[14] = Reduce_SLLDomain(AssignLocalToNextFieldTransformer(V[10])) // curr.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head*/
-/*V[14] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=n0, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=n0, ZoneState: [and(len1-len0<=0, V0-len0<=-1, V0-len1<=-1, len1-V0<=1, len0-len1<=0, len0-V0<=1)]})*/
+/*V[14] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=n0, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=n0, ZoneState: [and(V0-len0<=-1, len1-len0<=0, V0-len1<=-1, len1-V0<=1, len0-V0<=1, len0-len1<=0)]})*/
         staticinvoke <MySLLSizeBenchmarks: void analysisAssertCyclic(MySLLSizeBenchmarks$Node,java.lang.String)>(head, "Not cyclic!");
-/*Source Line Pos Tag: sline: 150 eline: 150 spos: 3 epos: 44 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 115 eline: 115 spos: 3 epos: 44 file: MySLLSizeBenchmarks.java*/
 /*V[15] = Reduce_SLLDomain(AssertCyclicTransformer(V[14])) // staticinvoke <MySLLSizeBenchmarks: void analysisAssertCyclic(MySLLSizeBenchmarks$Node,java.lang.String)>(head, "Not cyclic!")*/
-/*V[15] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=n0, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=n0, ZoneState: [and(len1-len0<=0, V0-len0<=-1, V0-len1<=-1, len1-V0<=1, len0-len1<=0, len0-V0<=1)]})*/
+/*V[15] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=n0, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=n0, ZoneState: [and(V0-len0<=-1, len1-len0<=0, V0-len1<=-1, len1-V0<=1, len0-V0<=1, len0-len1<=0)]})*/
         temp$2 = null;
-/*Source Line Pos Tag: sline: 150 eline: 150 spos: 3 epos: 44 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 115 eline: 115 spos: 3 epos: 44 file: MySLLSizeBenchmarks.java*/
 /*V[16] = Reduce_SLLDomain(AssignNullTransformer(V[15])) // temp$2 = null*/
-/*V[16] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=n0, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=n0, ZoneState: [and(len1-len0<=0, V0-len0<=-1, V0-len1<=-1, len1-V0<=1, len0-len1<=0, len0-V0<=1)]})*/
+/*V[16] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=n0, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=n0, ZoneState: [and(V0-len0<=-1, len1-len0<=0, V0-len1<=-1, len1-V0<=1, len0-V0<=1, len0-len1<=0)]})*/
         return temp$2;
-/*Source Line Pos Tag: sline: 153 eline: 153 spos: 3 epos: 14 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 118 eline: 118 spos: 3 epos: 14 file: MySLLSizeBenchmarks.java*/
 /*V[17] = V[16] // return temp$2*/
-/*V[17] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=n0, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=n0, ZoneState: [and(len1-len0<=0, V0-len0<=-1, V0-len1<=-1, len1-V0<=1, len0-len1<=0, len0-V0<=1)]})*/
+/*V[17] : or(graph = {temp$2=null, temp$1=null, temp$0=null, curr=n0, head=n0, n0.next=n0, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$2=null, temp$1=n1, temp$0=null, curr=n1, head=n0, n0.next=n1, n1.next=n0, ZoneState: [and(V0-len0<=-1, len1-len0<=0, V0-len1<=-1, len1-V0<=1, len0-V0<=1, len0-len1<=0)]})*/
     }
 
 /*[head]*/
@@ -426,47 +244,47 @@ public class MySLLSizeBenchmarks extends java.lang.Object
         MySLLSizeBenchmarks$Node head, y, temp$0, temp$1;
 
         this := @this: MySLLSizeBenchmarks;
-/*Source Line Pos Tag: sline: 160 eline: 169 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
-/*V[0] = true // this := @this: MySLLSizeBenchmarks*/
-/*V[0] : true*/
+/*Source Line Pos Tag: sline: 125 eline: 134 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
 /*V[1] = V[0] // this := @this: MySLLSizeBenchmarks*/
 /*V[1] : true*/
+/*V[0] = true // this := @this: MySLLSizeBenchmarks*/
+/*V[0] : true*/
         head := @parameter0: MySLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 160 eline: 160 spos: 28 epos: 36 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 125 eline: 125 spos: 28 epos: 36 file: MySLLSizeBenchmarks.java*/
 /*V[2] = V[1] // head := @parameter0: MySLLSizeBenchmarks$Node*/
 /*V[2] : true*/
         staticinvoke <MySLLSizeBenchmarks: void analysisInitAcyclic(MySLLSizeBenchmarks$Node)>(head);
-/*Source Line Pos Tag: sline: 161 eline: 161 spos: 3 epos: 28 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 126 eline: 126 spos: 3 epos: 28 file: MySLLSizeBenchmarks.java*/
 /*V[3] = Reduce_SLLDomain(InitAcyclicTransformer(V[2])) // staticinvoke <MySLLSizeBenchmarks: void analysisInitAcyclic(MySLLSizeBenchmarks$Node)>(head)*/
 /*V[3] : or(graph = {temp$1=null, temp$0=null, y=null, head=n0, n0~>null, ZoneState: [V0-len0<=-2]}, graph = {temp$1=null, temp$0=null, y=null, head=null, ZoneState: [true]}, graph = {temp$1=null, temp$0=null, y=null, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]})*/
         temp$0 = new MySLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 162 eline: 162 spos: 3 epos: 22 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 127 eline: 127 spos: 3 epos: 22 file: MySLLSizeBenchmarks.java*/
 /*V[4] = Reduce_SLLDomain(AssignNewExprToLocalTransformer(V[3])) // temp$0 = new MySLLSizeBenchmarks$Node*/
 /*V[4] : or(graph = {temp$1=null, temp$0=n1, y=null, head=n0, n0~>null, n1.next=null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$1=null, temp$0=n0, y=null, head=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$1=null, temp$0=n1, y=null, head=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
         specialinvoke temp$0.<MySLLSizeBenchmarks$Node: void <init>()>();
-/*Source Line Pos Tag: sline: 162 eline: 162 spos: 12 epos: 21 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 127 eline: 127 spos: 12 epos: 21 file: MySLLSizeBenchmarks.java*/
 /*V[5] = V[4] // specialinvoke temp$0.<MySLLSizeBenchmarks$Node: void <init>()>()*/
 /*V[5] : or(graph = {temp$1=null, temp$0=n1, y=null, head=n0, n0~>null, n1.next=null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$1=null, temp$0=n0, y=null, head=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$1=null, temp$0=n1, y=null, head=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
         y = temp$0;
-/*Source Line Pos Tag: sline: 162 eline: 162 spos: 12 epos: 21 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 127 eline: 127 spos: 12 epos: 21 file: MySLLSizeBenchmarks.java*/
 /*V[6] = Reduce_SLLDomain(AssignRefToRefTransformer(V[5])) // y = temp$0*/
 /*V[6] : or(graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$1=null, temp$0=n0, y=n0, head=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0~>null, n1.next=null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]})*/
         head.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = y;
-/*Source Line Pos Tag: sline: 163 eline: 163 spos: 8 epos: 11 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 128 eline: 128 spos: 8 epos: 11 file: MySLLSizeBenchmarks.java*/
 /*V[7] = Reduce_SLLDomain(AssignLocalToNextFieldTransformer(V[6])) // head.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = y*/
-/*V[7] : or(graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len1-len0<=0, V0-len0<=-1, V0-len1<=-1, len1-V0<=1, len0-len1<=0, len0-V0<=1)]}, graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0~>n1, n1~>null, ZoneState: [false]})*/
+/*V[7] : graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(V0-len0<=-1, len1-len0<=0, V0-len1<=-1, len1-V0<=1, len0-V0<=1, len0-len1<=0)]}*/
         staticinvoke <MySLLSizeBenchmarks: void analysisAssertReachable(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,java.lang.String)>(head, y, "Not reachable!");
-/*Source Line Pos Tag: sline: 165 eline: 165 spos: 3 epos: 53 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 130 eline: 130 spos: 3 epos: 53 file: MySLLSizeBenchmarks.java*/
 /*V[8] = Reduce_SLLDomain(AssertReachableTransformer(V[7])) // staticinvoke <MySLLSizeBenchmarks: void analysisAssertReachable(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,java.lang.String)>(head, y, "Not reachable!")*/
-/*V[8] : or(graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0~>n1, n1~>null, ZoneState: [false]}, graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len1-len0<=0, V0-len0<=-1, V0-len1<=-1, len1-V0<=1, len0-len1<=0, len0-V0<=1)]})*/
+/*V[8] : graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(V0-len0<=-1, len1-len0<=0, V0-len1<=-1, len1-V0<=1, len0-V0<=1, len0-len1<=0)]}*/
         temp$1 = null;
-/*Source Line Pos Tag: sline: 165 eline: 165 spos: 3 epos: 53 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 130 eline: 130 spos: 3 epos: 53 file: MySLLSizeBenchmarks.java*/
 /*V[9] = Reduce_SLLDomain(AssignNullTransformer(V[8])) // temp$1 = null*/
-/*V[9] : or(graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0~>n1, n1~>null, ZoneState: [true]}, graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len1-len0<=0, V0-len0<=-1, V0-len1<=-1, len1-V0<=1, len0-len1<=0, len0-V0<=1)]})*/
+/*V[9] : graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(V0-len0<=-1, len1-len0<=0, V0-len1<=-1, len1-V0<=1, len0-V0<=1, len0-len1<=0)]}*/
         return temp$1;
-/*Source Line Pos Tag: sline: 168 eline: 168 spos: 3 epos: 14 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 133 eline: 133 spos: 3 epos: 14 file: MySLLSizeBenchmarks.java*/
 /*V[10] = V[9] // return temp$1*/
-/*V[10] : or(graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0~>n1, n1~>null, ZoneState: [true]}, graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(len1-len0<=0, V0-len0<=-1, V0-len1<=-1, len1-V0<=1, len0-len1<=0, len0-V0<=1)]})*/
+/*V[10] : graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=n1, n1.next=null, ZoneState: [and(V0-len0<=-1, len1-len0<=0, V0-len1<=-1, len1-V0<=1, len0-V0<=1, len0-len1<=0)]}*/
     }
 
 /*[head]*/
@@ -476,43 +294,249 @@ public class MySLLSizeBenchmarks extends java.lang.Object
         MySLLSizeBenchmarks$Node head, y, temp$0, temp$1;
 
         this := @this: MySLLSizeBenchmarks;
-/*Source Line Pos Tag: sline: 175 eline: 183 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 140 eline: 148 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
 /*V[0] = true // this := @this: MySLLSizeBenchmarks*/
 /*V[0] : true*/
 /*V[1] = V[0] // this := @this: MySLLSizeBenchmarks*/
 /*V[1] : true*/
         head := @parameter0: MySLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 175 eline: 175 spos: 27 epos: 35 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 140 eline: 140 spos: 27 epos: 35 file: MySLLSizeBenchmarks.java*/
 /*V[2] = V[1] // head := @parameter0: MySLLSizeBenchmarks$Node*/
 /*V[2] : true*/
         staticinvoke <MySLLSizeBenchmarks: void analysisInitAcyclic(MySLLSizeBenchmarks$Node)>(head);
-/*Source Line Pos Tag: sline: 176 eline: 176 spos: 3 epos: 28 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 141 eline: 141 spos: 3 epos: 28 file: MySLLSizeBenchmarks.java*/
 /*V[3] = Reduce_SLLDomain(InitAcyclicTransformer(V[2])) // staticinvoke <MySLLSizeBenchmarks: void analysisInitAcyclic(MySLLSizeBenchmarks$Node)>(head)*/
 /*V[3] : or(graph = {temp$1=null, temp$0=null, y=null, head=n0, n0~>null, ZoneState: [V0-len0<=-2]}, graph = {temp$1=null, temp$0=null, y=null, head=null, ZoneState: [true]}, graph = {temp$1=null, temp$0=null, y=null, head=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]})*/
         temp$0 = new MySLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 177 eline: 177 spos: 3 epos: 22 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 142 eline: 142 spos: 3 epos: 22 file: MySLLSizeBenchmarks.java*/
 /*V[4] = Reduce_SLLDomain(AssignNewExprToLocalTransformer(V[3])) // temp$0 = new MySLLSizeBenchmarks$Node*/
 /*V[4] : or(graph = {temp$1=null, temp$0=n1, y=null, head=n0, n0~>null, n1.next=null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$1=null, temp$0=n0, y=null, head=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$1=null, temp$0=n1, y=null, head=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
         specialinvoke temp$0.<MySLLSizeBenchmarks$Node: void <init>()>();
-/*Source Line Pos Tag: sline: 177 eline: 177 spos: 12 epos: 21 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 142 eline: 142 spos: 12 epos: 21 file: MySLLSizeBenchmarks.java*/
 /*V[5] = V[4] // specialinvoke temp$0.<MySLLSizeBenchmarks$Node: void <init>()>()*/
 /*V[5] : or(graph = {temp$1=null, temp$0=n1, y=null, head=n0, n0~>null, n1.next=null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$1=null, temp$0=n0, y=null, head=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$1=null, temp$0=n1, y=null, head=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
         y = temp$0;
-/*Source Line Pos Tag: sline: 177 eline: 177 spos: 12 epos: 21 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 142 eline: 142 spos: 12 epos: 21 file: MySLLSizeBenchmarks.java*/
 /*V[6] = Reduce_SLLDomain(AssignRefToRefTransformer(V[5])) // y = temp$0*/
 /*V[6] : or(graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$1=null, temp$0=n0, y=n0, head=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0~>null, n1.next=null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]})*/
         staticinvoke <MySLLSizeBenchmarks: void analysisAssertDisjoint(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,java.lang.String)>(head, y, "Not disjoint!");
-/*Source Line Pos Tag: sline: 179 eline: 179 spos: 3 epos: 51 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 144 eline: 144 spos: 3 epos: 51 file: MySLLSizeBenchmarks.java*/
 /*V[7] = Reduce_SLLDomain(AssertDisjointTransformer(V[6])) // staticinvoke <MySLLSizeBenchmarks: void analysisAssertDisjoint(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,java.lang.String)>(head, y, "Not disjoint!")*/
 /*V[7] : or(graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$1=null, temp$0=n0, y=n0, head=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0~>null, n1.next=null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]})*/
         temp$1 = null;
-/*Source Line Pos Tag: sline: 179 eline: 179 spos: 3 epos: 51 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 144 eline: 144 spos: 3 epos: 51 file: MySLLSizeBenchmarks.java*/
 /*V[8] = Reduce_SLLDomain(AssignNullTransformer(V[7])) // temp$1 = null*/
 /*V[8] : or(graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$1=null, temp$0=n0, y=n0, head=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0~>null, n1.next=null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]})*/
         return temp$1;
-/*Source Line Pos Tag: sline: 182 eline: 182 spos: 3 epos: 14 file: MySLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 147 eline: 147 spos: 3 epos: 14 file: MySLLSizeBenchmarks.java*/
 /*V[9] = V[8] // return temp$1*/
 /*V[9] : or(graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$1=null, temp$0=n0, y=n0, head=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$1=null, temp$0=n1, y=n1, head=n0, n0~>null, n1.next=null, ZoneState: [and(len2-len0<=-1, V0-len0<=-2, V0-len2<=-1, len2-V0<=1)]})*/
+    }
+
+/*[size]*/
+    public MySLLSizeBenchmarks$Node createAndPrintError(int)
+    {
+        MySLLSizeBenchmarks this;
+        int size, i, temp$2, temp$4;
+        MySLLSizeBenchmarks$Node head1, head2, n1, temp$0, n2, temp$1, n1, temp$3, t1, t2, temp$5, temp$6;
+
+        this := @this: MySLLSizeBenchmarks;
+/*Source Line Pos Tag: sline: 153 eline: 189 spos: 2 epos: 2 file: MySLLSizeBenchmarks.java*/
+/*V[0] = true // this := @this: MySLLSizeBenchmarks*/
+/*V[0] : true*/
+/*V[1] = V[0] // this := @this: MySLLSizeBenchmarks*/
+/*V[1] : true*/
+        size := @parameter0: int;
+/*Source Line Pos Tag: sline: 153 eline: 153 spos: 34 epos: 41 file: MySLLSizeBenchmarks.java*/
+/*V[2] = V[1] // size := @parameter0: int*/
+/*V[2] : true*/
+        staticinvoke <MySLLSizeBenchmarks: void analysisInitAllNulls()>();
+/*Source Line Pos Tag: sline: 154 eline: 154 spos: 3 epos: 25 file: MySLLSizeBenchmarks.java*/
+/*V[3] = Reduce_SLLDomain(InitAllNullsTransformer(V[2])) // staticinvoke <MySLLSizeBenchmarks: void analysisInitAllNulls()>()*/
+/*V[3] : graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
+        head1 = null;
+/*Source Line Pos Tag: sline: 155 eline: 155 spos: 3 epos: 20 file: MySLLSizeBenchmarks.java*/
+/*V[4] = Reduce_SLLDomain(AssignNullTransformer(V[3])) // head1 = null*/
+/*V[4] : graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
+        head2 = null;
+/*Source Line Pos Tag: sline: 156 eline: 156 spos: 3 epos: 20 file: MySLLSizeBenchmarks.java*/
+/*V[5] = Reduce_SLLDomain(AssignNullTransformer(V[4])) // head2 = null*/
+/*V[5] : graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
+        i = 0;
+/*Source Line Pos Tag: sline: 157 eline: 157 spos: 8 epos: 16 file: MySLLSizeBenchmarks.java*/
+/*V[6] = V[5] // i = 0*/
+/*V[6] : graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}*/
+
+     label1:
+        if i < size goto label2;
+/*Source Line Pos Tag: sline: 157 eline: 157 spos: 19 epos: 26 file: MySLLSizeBenchmarks.java*/
+/*V[8] = V[10] // assume !(i < size)*/
+/*V[8] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]})*/
+/*V[10] = SLLDomain[Widening|Narrowing](V[10], V[9]) // if i < size goto temp$0 = new MySLLSizeBenchmarks$Node*/
+/*V[10] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len3-len4<=0, V0-len2<=-1, len1-len2<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len4-len2<=0, len2-len0<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len3-len4<=0, V0-len2<=-1, len1-len2<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+/*V[7] = V[10] // assume i < size*/
+/*V[7] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]})*/
+/*V[9] = JoinLoop_SLLDomain(V[6], V[27]) // if i < size goto temp$0 = new MySLLSizeBenchmarks$Node*/
+/*V[9] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]})*/
+
+        goto label3;
+/*Source Line Pos Tag: sline: 157 eline: 157 spos: 19 epos: 26 file: MySLLSizeBenchmarks.java*/
+/*V[11] = V[8] // goto [?= temp$3 = new MySLLSizeBenchmarks$Node]*/
+/*V[11] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, ZoneState: [true]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len2<=-1, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]})*/
+
+     label2:
+        temp$0 = new MySLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 158 eline: 158 spos: 4 epos: 24 file: MySLLSizeBenchmarks.java*/
+/*V[12] = Reduce_SLLDomain(AssignNewExprToLocalTransformer(V[7])) // temp$0 = new MySLLSizeBenchmarks$Node*/
+/*V[12] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=n0, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]})*/
+        specialinvoke temp$0.<MySLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 158 eline: 158 spos: 14 epos: 23 file: MySLLSizeBenchmarks.java*/
+/*V[13] = V[12] // specialinvoke temp$0.<MySLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[13] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=n0, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]})*/
+        n1 = temp$0;
+/*Source Line Pos Tag: sline: 158 eline: 158 spos: 14 epos: 23 file: MySLLSizeBenchmarks.java*/
+/*V[14] = Reduce_SLLDomain(AssignRefToRefTransformer(V[13])) // n1 = temp$0*/
+/*V[14] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=n0, n1=n0, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+        n1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head1;
+/*Source Line Pos Tag: sline: 159 eline: 159 spos: 7 epos: 10 file: MySLLSizeBenchmarks.java*/
+/*V[15] = Reduce_SLLDomain(AssignLocalToNextFieldTransformer(V[14])) // n1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head1*/
+/*V[15] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=n0, n1=n0, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+        n1.<MySLLSizeBenchmarks$Node: int data> = i;
+/*Source Line Pos Tag: sline: 160 eline: 160 spos: 7 epos: 10 file: MySLLSizeBenchmarks.java*/
+/*V[16] = V[15] // n1.<MySLLSizeBenchmarks$Node: int data> = i*/
+/*V[16] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=n0, n1=n0, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+        head1 = n1;
+/*Source Line Pos Tag: sline: 161 eline: 161 spos: 4 epos: 8 file: MySLLSizeBenchmarks.java*/
+/*V[17] = Reduce_SLLDomain(AssignRefToRefTransformer(V[16])) // head1 = n1*/
+/*V[17] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=null, n2=null, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]})*/
+        temp$1 = new MySLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 163 eline: 163 spos: 4 epos: 24 file: MySLLSizeBenchmarks.java*/
+/*V[18] = Reduce_SLLDomain(AssignNewExprToLocalTransformer(V[17])) // temp$1 = new MySLLSizeBenchmarks$Node*/
+/*V[18] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=null, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
+        specialinvoke temp$1.<MySLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 163 eline: 163 spos: 14 epos: 23 file: MySLLSizeBenchmarks.java*/
+/*V[19] = V[18] // specialinvoke temp$1.<MySLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[19] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n1, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=null, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
+        n2 = temp$1;
+/*Source Line Pos Tag: sline: 163 eline: 163 spos: 14 epos: 23 file: MySLLSizeBenchmarks.java*/
+/*V[20] = Reduce_SLLDomain(AssignRefToRefTransformer(V[19])) // n2 = temp$1*/
+/*V[20] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]})*/
+        n2.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head2;
+/*Source Line Pos Tag: sline: 164 eline: 164 spos: 7 epos: 10 file: MySLLSizeBenchmarks.java*/
+/*V[21] = Reduce_SLLDomain(AssignLocalToNextFieldTransformer(V[20])) // n2.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head2*/
+/*V[21] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
+        n2.<MySLLSizeBenchmarks$Node: int data> = i;
+/*Source Line Pos Tag: sline: 165 eline: 165 spos: 7 epos: 10 file: MySLLSizeBenchmarks.java*/
+/*V[22] = V[21] // n2.<MySLLSizeBenchmarks$Node: int data> = i*/
+/*V[22] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len0-len4<=0, len0-len3<=0, V0-len4<=-1, len1-len4<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, V0-len0<=-1, len1-len0<=0, len4-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=null, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]})*/
+        head2 = n2;
+/*Source Line Pos Tag: sline: 166 eline: 166 spos: 4 epos: 8 file: MySLLSizeBenchmarks.java*/
+/*V[23] = Reduce_SLLDomain(AssignRefToRefTransformer(V[22])) // head2 = n2*/
+/*V[23] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]})*/
+        staticinvoke <MySLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!");
+/*Source Line Pos Tag: sline: 168 eline: 168 spos: 4 epos: 76 file: MySLLSizeBenchmarks.java*/
+/*V[24] = Reduce_SLLDomain(AssertNoGarbageTransformer(V[23])) // staticinvoke <MySLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!")*/
+/*V[24] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]})*/
+        temp$2 = i + 1;
+/*Source Line Pos Tag: sline: 157 eline: 157 spos: 29 epos: 31 file: MySLLSizeBenchmarks.java*/
+/*V[25] = V[24] // temp$2 = i + 1*/
+/*V[25] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]})*/
+        i = temp$2;
+/*Source Line Pos Tag: sline: 157 eline: 157 spos: 31 epos: 31 file: MySLLSizeBenchmarks.java*/
+/*V[26] = V[25] // i = temp$2*/
+/*V[26] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]})*/
+        goto label1;
+/*Source Line Pos Tag: sline: 157 eline: 169 spos: 3 epos: 3 file: MySLLSizeBenchmarks.java*/
+/*V[27] = V[26] // goto [?= (branch)]*/
+/*V[27] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, ZoneState: [and(len2-len0<=0, V0-len0<=-1, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-V0<=1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, V0-len2<=-1, len1-len2<=0, len3-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len0-len2<=0, len2-len4<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len0-len3<=0, len2-V0<=1, len4-V0<=1, len3-len1<=0, len3-len0<=0, len3-len2<=0, V0-len0<=-1, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=null, n1=null, temp$1=n3, n2=n3, temp$0=n2, n1=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len0-V0<=1, len0-len1<=0, len3-len4<=0, len0-len4<=0, V0-len3<=-1, len3-V0<=1, len1-len4<=0, V0-len4<=-1, len0-len3<=0, len4-V0<=1, len4-len0<=0, len3-len1<=0, len3-len0<=0, len4-len1<=0, len4-len3<=0, V0-len0<=-1, len1-len0<=0)]})*/
+
+     label3:
+        temp$3 = new MySLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 171 eline: 171 spos: 3 epos: 23 file: MySLLSizeBenchmarks.java*/
+/*V[28] = Reduce_SLLDomain(AssignNewExprToLocalTransformer(V[11])) // temp$3 = new MySLLSizeBenchmarks$Node*/
+/*V[28] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n0, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+        specialinvoke temp$3.<MySLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 171 eline: 171 spos: 13 epos: 22 file: MySLLSizeBenchmarks.java*/
+/*V[29] = V[28] // specialinvoke temp$3.<MySLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[29] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n0, n1=null, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=null, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+        n1 = temp$3;
+/*Source Line Pos Tag: sline: 171 eline: 171 spos: 13 epos: 22 file: MySLLSizeBenchmarks.java*/
+/*V[30] = Reduce_SLLDomain(AssignRefToRefTransformer(V[29])) // n1 = temp$3*/
+/*V[30] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n0, n1=n0, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+        n1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head1;
+/*Source Line Pos Tag: sline: 172 eline: 172 spos: 6 epos: 9 file: MySLLSizeBenchmarks.java*/
+/*V[31] = Reduce_SLLDomain(AssignLocalToNextFieldTransformer(V[30])) // n1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next> = head1*/
+/*V[31] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n0, n1=n0, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+        temp$4 = 77;
+/*Source Line Pos Tag: sline: 173 eline: 173 spos: 6 epos: 9 file: MySLLSizeBenchmarks.java*/
+/*V[32] = V[31] // temp$4 = 77*/
+/*V[32] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n0, n1=n0, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+        n1.<MySLLSizeBenchmarks$Node: int data> = temp$4;
+/*Source Line Pos Tag: sline: 173 eline: 173 spos: 6 epos: 9 file: MySLLSizeBenchmarks.java*/
+/*V[33] = V[32] // n1.<MySLLSizeBenchmarks$Node: int data> = temp$4*/
+/*V[33] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len2-len0<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len0-len2<=0, len0-V0<=1, V0-len2<=-1, len2-len3<=0, len3-V0<=1, V0-len3<=-1, len2-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n0, n1=n0, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=null, n0.next=null, ZoneState: [and(len1-V0<=1, V0-len1<=-1)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-V0<=1, V0-len1<=-1, len1-len3<=0, len1-len2<=0, V0-len2<=-1, len3-len4<=0, len3-V0<=1, V0-len3<=-1, len1-len4<=0, V0-len4<=-1, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len2-len1<=0, len4-len3<=0, len2-len4<=0, len0-len2<=0, len0-V0<=1, len0-len1<=0, len2-len3<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len3-len2<=0)]})*/
+        head1 = n1;
+/*Source Line Pos Tag: sline: 174 eline: 174 spos: 3 epos: 7 file: MySLLSizeBenchmarks.java*/
+/*V[34] = Reduce_SLLDomain(AssignRefToRefTransformer(V[33])) // head1 = n1*/
+/*V[34] : or(graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len3-len1<=0, len3-len0<=0, V0-len0<=-1, len1-len0<=0, len1-len3<=0, len1-V0<=1, V0-len1<=-1, len0-V0<=1, len0-len1<=0, V0-len3<=-1, len3-V0<=1, len0-len3<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n2, n1=n2, temp$1=n1, n2=n1, temp$0=n0, n1=n0, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, ZoneState: [and(len1-len3<=0, len1-V0<=1, V0-len1<=-1, V0-len2<=-1, len3-len4<=0, len1-len2<=0, V0-len3<=-1, len3-V0<=1, V0-len4<=-1, len1-len4<=0, len4-len0<=0, len2-len0<=0, len4-len2<=0, len4-len1<=0, len4-len3<=0, len2-len1<=0, len2-len4<=0, len0-len2<=0, len2-len3<=0, len0-V0<=1, len0-len1<=0, len0-len4<=0, len2-V0<=1, len0-len3<=0, len4-V0<=1, len3-len1<=0, len3-len0<=0, V0-len0<=-1, len3-len2<=0, len1-len0<=0)]}, graph = {temp$6=null, temp$5=null, t2=null, t1=null, temp$3=n0, n1=n0, temp$1=null, n2=null, temp$0=null, n1=null, head2=null, head1=n0, n0.next=null, ZoneState: [and(V0-len0<=-1, len0-V0<=1)]})*/
+        staticinvoke <MySLLSizeBenchmarks: void analysisLengthDiff(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,int,java.lang.String)>(head1, head2, 1, "Unable to assert size difference!");
+/*Source Line Pos Tag: sline: 176 eline: 176 spos: 3 epos: 75 file: MySLLSizeBenchmarks.java*/
+/*V[35] = Reduce_SLLDomain(AssertLengthDiff(V[34])) // staticinvoke <MySLLSizeBenchmarks: void analysisLengthDiff(MySLLSizeBenchmarks$Node,MySLLSizeBenchmarks$Node,int,java.lang.String)>(head1, head2, 1, "Unable to assert size difference!")*/
+/*V[35] : false*/
+/*Possible error!*/
+        t1 = head1;
+/*Source Line Pos Tag: sline: 178 eline: 178 spos: 3 epos: 18 file: MySLLSizeBenchmarks.java*/
+/*V[36] = Reduce_SLLDomain(AssignRefToRefTransformer(V[35])) // t1 = head1*/
+/*V[36] : false*/
+        t2 = head2;
+/*Source Line Pos Tag: sline: 179 eline: 179 spos: 3 epos: 18 file: MySLLSizeBenchmarks.java*/
+/*V[37] = Reduce_SLLDomain(AssignRefToRefTransformer(V[36])) // t2 = head2*/
+/*V[37] : false*/
+
+     label4:
+        if t1 != null goto label5;
+/*Source Line Pos Tag: sline: 180 eline: 180 spos: 10 epos: 19 file: MySLLSizeBenchmarks.java*/
+/*V[41] = SLLDomain[Widening|Narrowing](V[41], V[40]) // if t1 != null goto temp$5 = t1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
+/*V[41] : false*/
+/*V[40] = JoinLoop_SLLDomain(V[37], V[47]) // if t1 != null goto temp$5 = t1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
+/*V[40] : false*/
+/*V[38] = Reduce_SLLDomain(!AssumeLocalEqNullTransformer(V[41])) // assume t1 != null*/
+/*V[38] : false*/
+/*V[39] = Reduce_SLLDomain(AssumeLocalEqNullTransformer(V[41])) // assume !(t1 != null)*/
+/*V[39] : false*/
+
+        goto label6;
+/*Source Line Pos Tag: sline: 180 eline: 180 spos: 10 epos: 19 file: MySLLSizeBenchmarks.java*/
+/*V[42] = V[39] // goto [?= return head1]*/
+/*V[42] : false*/
+
+     label5:
+        temp$5 = t1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 183 eline: 183 spos: 4 epos: 16 file: MySLLSizeBenchmarks.java*/
+/*V[43] = Reduce_SLLDomain(AssignNextToLocalTransformer(V[38])) // temp$5 = t1.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
+/*V[43] : false*/
+        t1 = temp$5;
+/*Source Line Pos Tag: sline: 183 eline: 183 spos: 4 epos: 5 file: MySLLSizeBenchmarks.java*/
+/*V[44] = Reduce_SLLDomain(AssignRefToRefTransformer(V[43])) // t1 = temp$5*/
+/*V[44] : false*/
+        temp$6 = t2.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 186 eline: 186 spos: 4 epos: 16 file: MySLLSizeBenchmarks.java*/
+/*V[45] = Reduce_SLLDomain(AssignNextToLocalTransformer(V[44])) // temp$6 = t2.<MySLLSizeBenchmarks$Node: MySLLSizeBenchmarks$Node next>*/
+/*V[45] : false*/
+        t2 = temp$6;
+/*Source Line Pos Tag: sline: 186 eline: 186 spos: 4 epos: 5 file: MySLLSizeBenchmarks.java*/
+/*V[46] = Reduce_SLLDomain(AssignRefToRefTransformer(V[45])) // t2 = temp$6*/
+/*V[46] : false*/
+        goto label4;
+/*Source Line Pos Tag: sline: 180 eline: 187 spos: 3 epos: 3 file: MySLLSizeBenchmarks.java*/
+/*V[47] = V[46] // goto [?= (branch)]*/
+/*V[47] : false*/
+
+     label6:
+        return head1;
+/*Source Line Pos Tag: sline: 188 eline: 188 spos: 3 epos: 15 file: MySLLSizeBenchmarks.java*/
+/*V[48] = V[42] // return head1*/
+/*V[48] : false*/
     }
 
 /*[]*/
